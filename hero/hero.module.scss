@@ -1,0 +1,29 @@
+@import '../../../scss/settings';
+
+.hero {
+	position: relative;
+
+	&__image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 0;
+	}
+
+	&__row {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__title {
+		position: relative;
+		transform: rotate(-2deg);
+
+		&-inside {
+			display: inline-block;
+			padding: rem(spacing(.5)) rem(spacing(1));
+		}
+	}
+}

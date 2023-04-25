@@ -1,0 +1,20 @@
+@import '../../../scss/settings';
+
+.footer {
+	$footer: &;
+
+	width: 100%;
+	text-align: center;
+
+	@include mq(vars(brakepoint, med), max-width) {
+		padding: rem(spacing(1));
+	}
+
+	@include mq(vars(brakepoint, med)) {
+		padding: rem(spacing(2)) rem(spacing(1));
+	}
+
+	&__nav {
+		padding: rem(spacing(.5)) 0;
+	}
+}

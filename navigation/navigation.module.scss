@@ -1,0 +1,116 @@
+@import '../../../scss/settings';
+
+.sub-nav {
+	$sub-nav: &;
+
+	&.is-inline {
+		font-size: 0;
+
+		#{$sub-nav}__item {
+			display: inline-block;
+
+			a {
+				margin-right: rem(spacing(.3));
+				margin-left: rem(spacing(.3));
+			}
+		}
+	}
+
+	&.is-navigation-menu {
+		#{$sub-nav}__item {
+			text-align: center;
+
+			a {
+				padding-top: rem(spacing(.5));
+				padding-bottom: rem(spacing(.5));
+				text-transform: uppercase;
+
+				@include mq(vars(brakepoint, med), max-width) {
+					@include type-h6;
+				}
+
+				@include mq(vars(brakepoint, med)) {
+					@include type-h1;
+				}
+			}
+		}
+	}
+
+	&__item {
+		list-style-type: none;
+
+		a {
+			display: block;
+			margin-top: rem(spacing(.1));
+			margin-bottom: rem(spacing(.1));
+			text-decoration: none;
+
+			@include type-paragraph;
+
+			@include mq-hover {
+				@include transition;
+			}
+
+			&::after {
+				right: -(rem(10px));
+				left: -(rem(10px));
+			}
+		}
+
+		&.is-active > a {
+			@include interaction(disable);
+
+			.u-link-hover-light & {
+				color: $light;
+			}
+
+			.u-link-hover-dark & {
+				color: $dark;
+			}
+
+			.u-link-hover-color-1 & {
+				color: $color-1;
+			}
+
+			.u-link-hover-color-2 & {
+				color: $color-2;
+			}
+
+			.u-link-hover-color-3 & {
+				color: $color-3;
+			}
+
+			.u-link-hover-color-4 & {
+				color: $color-4;
+			}
+		}
+
+		&.is-active > a::after {
+			opacity: 1;
+
+			.u-link-background-hover-light & {
+				background-color: $light;
+			}
+
+			.u-link-background-hover-dark & {
+				background-color: $dark;
+			}
+
+			.u-link-background-hover-color-1 & {
+				background-color: $color-1;
+			}
+
+			.u-link-background-hover-color-2 & {
+				background-color: $color-2;
+			}
+
+			.u-link-background-hover-color-3 & {
+				background-color: $color-3;
+			}
+
+			.u-link-background-hover-color-4 & {
+				background-color: $color-4;
+			}
+		}
+	}
+}

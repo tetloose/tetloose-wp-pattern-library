@@ -1,0 +1,35 @@
+@import '../../../scss/settings';
+
+.song-kick {
+	display: block;
+
+	@include mq(vars(brakepoint, med), max-width) {
+		margin-top: -(rem(vars(layout, gutter)));
+	}
+
+	@include mq(vars(brakepoint, med)) {
+		margin-top: -(calc(rem(vars(layout, gutter)) * 2));
+	}
+
+	&__artist {
+		width: 100%;
+
+		@include mq(vars(brakepoint, med), max-width) {
+			margin-top: rem(rem(vars(layout, gutter)));
+		}
+
+		@include mq(vars(brakepoint, med)) {
+			margin-top: calc(rem(vars(layout, gutter)) * 2);
+		}
+	}
+
+	&__content {
+		@include mq(vars(brakepoint, med), max-width) {
+			padding: rem(spacing(1));
+		}
+
+		@include mq(vars(brakepoint, med)) {
+			padding: rem(spacing(2));
+		}
+	}
+}

@@ -1,0 +1,50 @@
+@import '../../../scss/settings';
+
+.content-image {
+	&__container {
+		position: relative;
+	}
+
+	&__row {
+		@include mq(vars(brakepoint, lrg)) {
+			display: flex;
+			min-height: 50vh;
+			align-items: center;
+		}
+	}
+
+	&__figure {
+		@include mq(vars(brakepoint, lrg)) {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 50%;
+		}
+
+		&--left {
+			@include mq(vars(brakepoint, lrg)) {
+				left: 0;
+			}
+		}
+
+		&--right {
+			@include mq(vars(brakepoint, lrg)) {
+				right: 0;
+			}
+		}
+	}
+
+	&__content {
+		&--left {
+			@include mq(vars(brakepoint, lrg)) {
+				padding-left: rem(vars(layout, gutter));
+			}
+		}
+
+		&--right {
+			@include mq(vars(brakepoint, lrg)) {
+				padding-right: rem(vars(layout, gutter));
+			}
+		}
+	}
+}

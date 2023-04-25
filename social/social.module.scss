@@ -1,0 +1,19 @@
+@import '../../../scss/settings';
+
+.social {
+	width: 100%;
+	font-size: 0;
+
+	&__link {
+		display: inline-block;
+		margin-right: rem(spacing(.2));
+		margin-left: rem(spacing(.2));
+		padding-top: rem(spacing(.2));
+		padding-bottom: rem(spacing(.2));
+		text-decoration: none;
+
+		&::before {
+			font-size: rem(vars(type, med));
+		}
+	}
+}

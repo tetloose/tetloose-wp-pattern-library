@@ -1,0 +1,147 @@
+@import '../../../scss/settings';
+
+.menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+
+	@include mq(vars(brakepoint, med), max-width) {
+		width: rem(80px);
+	}
+
+	@include mq(vars(brakepoint, med)) {
+		width: rem(120px);
+	}
+}
+
+.trigger {
+	z-index: 4;
+	width: 100%;
+	height: 100%;
+	visibility: visible;
+	border-radius: 0;
+
+	@include mq(vars(brakepoint, med), max-width) {
+		border-top-width: 0;
+		border-right-width: 0;
+		border-bottom-width: 0;
+	}
+
+	@include mq(vars(brakepoint, med)) {
+		border-width: 0;
+	}
+
+	&:global(.is-active) {
+		position: fixed;
+		top: 0;
+		right: 0;
+
+		@include mq(vars(brakepoint, med), max-width) {
+			width: rem(80px);
+			height: rem(80px);
+		}
+
+		@include mq(vars(brakepoint, med)) {
+			width: rem(120px);
+			height: rem(120px);
+		}
+	}
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
+	opacity: 0;
+	visibility: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	@include transition(all, vars(transition, slow), ease-in-out);
+
+	&.animation-light {
+		&::before,
+		&::after {
+			background-color: $light;
+		}
+	}
+
+	&.animation-dark {
+		&::before,
+		&::after {
+			background-color: $dark;
+		}
+	}
+
+	&.animation-color-1 {
+		&::before,
+		&::after {
+			background-color: $color-1;
+		}
+	}
+
+	&.animation-color-2 {
+		&::before,
+		&::after {
+			background-color: $color-2;
+		}
+	}
+
+	&.animation-color-3 {
+		&::before,
+		&::after {
+			background-color: $color-3;
+		}
+	}
+
+	&.animation-color-4 {
+		&::before,
+		&::after {
+			background-color: $color-4;
+		}
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		position: fixed;
+		right: 0;
+		left: 0;
+		z-index: -1;
+		height: 0;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	.sub-nav {
+		@include transition(all);
+		@include hardware(true);
+	}
+
+	.nav-open & {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.sub-nav {
+	$sub-nav: &;
+
+	opacity: 0;
+	visibility: hidden;
+
+	.sub-nav-visible & {
+		opacity: 1;
+		visibility: visible;
+	}
+}

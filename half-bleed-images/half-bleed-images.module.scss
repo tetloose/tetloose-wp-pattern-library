@@ -1,0 +1,20 @@
+@import '../../../scss/settings';
+
+.half-bleed {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	overflow: hidden;
+
+	&__figure {
+		width: 50%;
+		height: 0;
+		padding-bottom: 50%;
+	}
+
+	:global(img) {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
