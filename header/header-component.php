@@ -58,6 +58,7 @@ $cta_link_component = new Module(
                 'figure_class_names' => '',
                 'animation' => 'fade-in',
                 'animation_duration' => 200,
+                'rest' => '',
             )
         );
     }
