@@ -46,6 +46,7 @@ if ( get_row_layout() == 'animated_banner' ) :
                     'class_names' => '',
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
+                    'rest' => '',
                 )
             );
         endif;
@@ -59,6 +60,7 @@ if ( get_row_layout() == 'animated_banner' ) :
                     'class_names' => '',
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
+                    'rest' => '',
                 )
             );
         endif;
@@ -72,6 +74,7 @@ if ( get_row_layout() == 'animated_banner' ) :
                     'class_names' => '',
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
+                    'rest' => '',
                 )
             );
         endif;
@@ -85,6 +88,7 @@ if ( get_row_layout() == 'animated_banner' ) :
                     'class_names' => 'is-contain',
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
+                    'rest' => '',
                 )
             );
         endif;
@@ -98,6 +102,7 @@ if ( get_row_layout() == 'animated_banner' ) :
                     'class_names' => 'is-contain',
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
+                    'rest' => '',
                 )
             );
         endif;
@@ -111,6 +116,7 @@ if ( get_row_layout() == 'animated_banner' ) :
                     'class_names' => 'is-contain',
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
+                    'rest' => '',
                 )
             );
         endif;
@@ -124,6 +130,7 @@ if ( get_row_layout() == 'animated_banner' ) :
                     'class_names' => 'is-contain',
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
+                    'rest' => '',
                 )
             );
         endif;

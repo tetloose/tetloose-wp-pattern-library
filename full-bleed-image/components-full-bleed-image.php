@@ -49,6 +49,7 @@ if ( get_row_layout() == 'full_bleed_image' ) :
                     'class_names' => esc_attr( $image_component->class_names() ),
                     'animation' => 'fade-in',
                     'animation_duration' => 200,
+                    'rest' => '',
                 )
             );
             ?>

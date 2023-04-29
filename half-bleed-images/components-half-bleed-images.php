@@ -52,6 +52,7 @@ if ( get_row_layout() == 'half_bleed_images' ) :
                             'class_names' => esc_attr( $image_component->class_names() ),
                             'animation' => 'fade-in',
                             'animation_duration' => 200,
+                            'rest' => '',
                         )
                     );
                 endif;
