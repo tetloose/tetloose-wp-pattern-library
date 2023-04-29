@@ -13,3 +13,7 @@ Update `src/js/config/modules.ts` with:
 **ACF** -> **Shared Fields** -> **Components**
 
 Content With Image Aside
+
+## Navigation
+
+[<< BACK TO HOME](../README.md)

@@ -13,3 +13,7 @@ Update `src/js/config/modules.ts` with:
 **ACF** -> **Shared Fields** -> **Components**
 
 Form
+
+## Navigation
+
+[<< BACK TO HOME](../README.md)
