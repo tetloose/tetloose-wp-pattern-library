@@ -1,4 +1,4 @@
-# Tetloose-WP-Pattern-Library
+# Tetloose Wordpress Pattern Library
 
 A collection of re-usuable components for projects. Used with [TETLOOSE-WP](https://github.com/tetloose/tetloose-wp).
 
