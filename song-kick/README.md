@@ -4,7 +4,7 @@ Add artist ID and generate a list of up and coming gigs.
 
 ## Module.ts
 
-Update `src/js/config/modules.ts` with:
+Update `src/js/config/modules.config.ts` with:
 
 `SongKick: () => import(/* webpackChunkName: "song-kick" */ '../components/song-kick/song-kick.component')`
 

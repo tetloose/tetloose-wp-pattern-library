@@ -4,7 +4,7 @@ Full width video component, add YouTube / Vimeo Links into the editor to build i
 
 ## Module.ts
 
-Update `src/js/config/modules.ts` with:
+Update `src/js/config/modules.config.ts` with:
 
 `FullBleedVideo: () => import(/* webpackChunkName: "full-bleed-video" */ '../components/full-bleed-video/full-bleed-video.component')`
 

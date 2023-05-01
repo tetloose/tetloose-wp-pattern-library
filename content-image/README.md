@@ -4,7 +4,7 @@ Image left content right alternating.
 
 ## Module.ts
 
-Update `src/js/config/modules.ts` with:
+Update `src/js/config/modules.config.ts` with:
 
 `ContentImage: () => import(/* webpackChunkName: "content-image" */ '../components/content-image/content-image.component')`
 

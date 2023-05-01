@@ -4,7 +4,7 @@ Add several images and apply animations to them.
 
 ## Module.ts
 
-Update `src/js/config/modules.ts` with:
+Update `src/js/config/modules.config.ts` with:
 
 `AnimatedBanner: () => import(/* webpackChunkName: "animated-banner" */ '../components/animated-banner/animated-banner.component')`
 

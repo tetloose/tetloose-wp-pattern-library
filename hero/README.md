@@ -4,7 +4,7 @@ Image and body copy, options to use page / post title.
 
 ## Module.ts
 
-Update `src/js/config/modules.ts` with:
+Update `src/js/config/modules.config.ts` with:
 
 `Hero: () => import(/* webpackChunkName: "hero" */ '../components/hero/hero.component')`
 
