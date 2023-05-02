@@ -6,7 +6,7 @@
 	}
 
 	&__row {
-		@include mq(vars(brakepoint, lrg)) {
+		@include mq(vars(breakpoint, lrg)) {
 			display: flex;
 			min-height: 50vh;
 			align-items: center;
@@ -14,7 +14,7 @@
 	}
 
 	&__figure {
-		@include mq(vars(brakepoint, lrg)) {
+		@include mq(vars(breakpoint, lrg)) {
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -22,13 +22,13 @@
 		}
 
 		&--left {
-			@include mq(vars(brakepoint, lrg)) {
+			@include mq(vars(breakpoint, lrg)) {
 				left: 0;
 			}
 		}
 
 		&--right {
-			@include mq(vars(brakepoint, lrg)) {
+			@include mq(vars(breakpoint, lrg)) {
 				right: 0;
 			}
 		}
@@ -36,13 +36,13 @@
 
 	&__content {
 		&--left {
-			@include mq(vars(brakepoint, lrg)) {
+			@include mq(vars(breakpoint, lrg)) {
 				padding-left: rem(vars(layout, gutter));
 			}
 		}
 
 		&--right {
-			@include mq(vars(brakepoint, lrg)) {
+			@include mq(vars(breakpoint, lrg)) {
 				padding-right: rem(vars(layout, gutter));
 			}
 		}
