@@ -7,13 +7,11 @@
  **/
 
 if ( get_row_layout() == 'title' ) :
-    $use_post_title = is_single() || is_archive()
-        ? true
-        : get_sub_field( 'use_post_title' );
+    $use_post_title = get_sub_field( 'use_post_title' );
     $post_title = is_archive()
         ? bold_last_string( titleizeit( get_post_type() ) )
         : bold_last_string( get_the_title() );
-    $_title = bold_last_string( get_sub_field( 'title' ) );
+    $_title = get_sub_field( 'title' ) ? bold_last_string( get_sub_field( 'title' ) ) : bold_last_string( get_the_title() );
     $sub_title = get_sub_field( 'sub_title' );
     $content = get_sub_field( 'use_post_title' )
         ? '<h1>' . $post_title . '</h1>'

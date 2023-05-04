@@ -78,13 +78,11 @@ if ( get_row_layout() == 'hero' ) :
             $text_alignment,
         ]
     );
-    $use_post_title = is_single() || is_archive()
-        ? true
-        : get_sub_field( 'use_post_title' );
+    $use_post_title = get_sub_field( 'use_post_title' );
     $post_title = is_archive()
         ? bold_last_string( titleizeit( get_post_type() ) )
         : bold_last_string( get_the_title() );
-    $_title = bold_last_string( get_sub_field( 'title' ) );
+    $_title = get_sub_field( 'title' ) ? bold_last_string( get_sub_field( 'title' ) ) : bold_last_string( get_the_title() );
     $sub_title = get_sub_field( 'sub_title' );
     $content = $use_post_title
         ? '<h1 data-styles="hero__title"><span data-styles="hero__title-inside" class="' . esc_attr( $title_component->class_names() ) . '">' . $post_title . '</span></h1>'
