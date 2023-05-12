@@ -42,7 +42,7 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                             : 'content-image__figure--right',
                     ],
                     [
-                        $image_styles['image_gradiant'],
+                        $image_styles['image_gradient'],
                         $image_styles['image_size'],
                         $image_styles['image_alignment'],
                     ]

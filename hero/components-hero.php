@@ -36,7 +36,7 @@ if ( get_row_layout() == 'hero' ) :
             'hero__image',
         ],
         [
-            $image_styles['image_gradiant'],
+            $image_styles['image_gradient'],
             $image_styles['image_size'],
             $image_styles['image_alignment'],
         ]

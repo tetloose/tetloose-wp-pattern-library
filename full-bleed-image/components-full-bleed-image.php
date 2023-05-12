@@ -27,7 +27,7 @@ if ( get_row_layout() == 'full_bleed_image' ) :
             'full-bleed__image',
         ],
         [
-            $image_styles['image_gradiant'],
+            $image_styles['image_gradient'],
             $image_styles['image_size'],
             $image_styles['image_alignment'],
         ]

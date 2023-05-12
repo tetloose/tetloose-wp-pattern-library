@@ -37,7 +37,7 @@ if ( get_row_layout() == 'half_bleed_images' ) :
                         'half-bleed__figure',
                     ],
                     [
-                        $image_styles['image_gradiant'],
+                        $image_styles['image_gradient'],
                         $image_styles['image_size'],
                         $image_styles['image_alignment'],
                     ]
