@@ -22,11 +22,13 @@ export class SongKick extends ComponentClass {
     }
 
     fetchEvents() {
-        (async() => {
+        (async () => {
             try {
                 const api = `https://api.songkick.com/api/3.0/artists/${this.state?.artistId}/calendar.json?apikey=io09K9l3ebJxmxe2`
                 const res = await request<ResProps>(api)
                 const events = res.resultsPage.results.event
+
+                console.log(events)
 
                 if (events !== undefined) {
                     this.updateState('events', events)
@@ -68,14 +70,14 @@ export class SongKick extends ComponentClass {
                     const {
                         uri,
                         start,
+                        displayName,
                         venue,
                         location
                     } = event[1]
                     const newDate = new Date(start.date)
                     const theContent = `
-                        <h3>
-                            ${newDate.getDate()}/${newDate.getMonth() + 1}/${newDate.getFullYear()}
-                        </h3>
+                        <h3>${displayName}</h3>
+                        <h4><small>${newDate.getDate()}/${newDate.getMonth() + 1}/${newDate.getFullYear()}</small></h4>
                         <ul>
                             <li><strong>${this.state?.artistCity}: </strong>${location.city}</li>
                             <li><strong>${this.state?.artistVenue}: </strong>${venue.displayName}</li>
