@@ -1,7 +1,7 @@
 <?php
 /**
- * Full Bleed Image
- * ACF Flexible Content
+ * Song Kick
+ * Connect to Song Kick API Pull latest events
  *
  * @package Tetloose-Theme
  **/
