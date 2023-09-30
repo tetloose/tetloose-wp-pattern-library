@@ -1,6 +1,6 @@
 import styles from './song-kick.module.scss'
-import { ComponentClass, AppendNode, request } from '../../utilities/'
-import { row, column, content } from '../../html'
+import { ComponentClass, AppendNode, request } from '@utilities'
+import { row, column, content } from '@html'
 import { ResProps } from './song-kick.types'
 
 export class SongKick extends ComponentClass {

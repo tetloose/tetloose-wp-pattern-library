@@ -1,5 +1,5 @@
 import styles from './animated-banner.module.scss'
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class AnimatedBanner extends ComponentClass {
     constructor(module: HTMLElement) {

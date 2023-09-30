@@ -1,5 +1,5 @@
 import styles from './content-image.module.scss'
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class ContentImage extends ComponentClass {
     constructor(module: HTMLElement) {
