@@ -17,8 +17,10 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
     );
     ?>
     <section
+        style="opacity: 0"
         data-module="ContentImage"
         data-animation="fade-in"
+        data-duration="400"
         data-styles="<?php echo esc_attr( $half_bleed_component->styles() ); ?>">
         <?php
         if ( have_rows( 'content_image_repeater' ) ) :
@@ -34,17 +36,17 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                 $image = get_sub_field( 'image' );
                 $image_styles = get_sub_field( 'image_styles' );
                 $selection = get_sub_field( 'selection' );
-                $image_component = new Module(
+                $figure_component = new Module(
                     [
                         'content-image__figure',
                         $content_image_count > 0
                             ? 'content-image__figure--left'
                             : 'content-image__figure--right',
+                        $image_styles['image_size'],
+                        $image_styles['image_alignment'],
                     ],
                     [
                         $image_styles['image_gradient'],
-                        $image_styles['image_size'],
-                        $image_styles['image_alignment'],
                     ]
                 );
                 $container_component = new Module(
@@ -99,15 +101,13 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                     class="<?php echo esc_attr( $container_component->class_names() ); ?>">
                     <?php
                     get_template_part(
-                        'components/partials-figure',
+                        'components/figure',
                         null,
                         array(
                             'image' => $image,
-                            'styles' => esc_attr( $image_component->styles() ),
-                            'class_names' => esc_attr( $image_component->class_names() ),
-                            'animation' => 'fade-in',
-                            'animation_duration' => 200,
-                            'rest' => '',
+                            'styles' => esc_attr( $figure_component->styles() ),
+                            'class_names' => esc_attr( $figure_component->class_names() ),
+                            'animation_duration' => 400,
                         )
                     );
                     ?>

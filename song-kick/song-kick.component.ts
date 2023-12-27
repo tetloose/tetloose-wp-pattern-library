@@ -1,5 +1,5 @@
 import styles from './song-kick.module.scss'
-import { ComponentClass, AppendNode, request } from '../../utilities/'
+import { ComponentClass, AppendNode, request } from '@utilities'
 import { row, column, content } from '../../html'
 import { ResProps } from './song-kick.types'
 
@@ -17,7 +17,7 @@ export class SongKick extends ComponentClass {
             error: ''
         }
 
-        this.cssModule(this.module, styles)
+        this.css(this.module, styles)
         this.fetchEvents()
     }
 

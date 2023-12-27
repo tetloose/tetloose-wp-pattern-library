@@ -22,36 +22,36 @@ if ( get_row_layout() == 'full_bleed_image' ) :
                 : '',
         ]
     );
-    $image_component = new Module(
+    $figure_component = new Module(
         [
-            'full-bleed__image',
-        ],
-        [
-            $image_styles['image_gradient'],
             $image_styles['image_size'],
             $image_styles['image_alignment'],
+        ],
+        [
+            'u-ratio-16x7',
+            $image_styles['image_gradient'],
         ]
     );
     if ( ! empty( $image ) ) :
         ?>
         <section
+            style="opacity: 0"
             data-module="FullBleedImage"
             data-animation="fade-in"
+            data-duration="400"
             data-styles="<?php echo esc_attr( $full_bleed_component->styles() ); ?>"
             class="<?php echo esc_attr( $full_bleed_component->class_names() ); ?>">
             <?php
-            get_template_part(
-                'components/partials-figure',
-                null,
-                array(
-                    'image' => $image,
-                    'styles' => esc_attr( $image_component->styles() ),
-                    'class_names' => esc_attr( $image_component->class_names() ),
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                    'rest' => '',
-                )
-            );
+                get_template_part(
+                    'components/figure',
+                    null,
+                    array(
+                        'image' => $image,
+                        'styles' => esc_attr( $figure_component->styles() ),
+                        'class_names' => esc_attr( $figure_component->class_names() ),
+                        'animation_duration' => 400,
+                    )
+                );
             ?>
         </section>
         <?php

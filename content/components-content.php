@@ -53,8 +53,10 @@ if ( get_row_layout() == 'content' ) :
     );
     ?>
     <section
+        style="opacity: 0"
         data-module="Content"
         data-animation="fade-in"
+        data-duration="400"
         class="<?php echo esc_attr( $content_component->class_names() ); ?>">
         <div class="l-row">
             <?php

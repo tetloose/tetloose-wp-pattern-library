@@ -23,8 +23,10 @@ if ( get_row_layout() == 'full_bleed_video' ) :
     if ( ! empty( $content_editor ) ) :
         ?>
         <section
+            style="opacity: 0"
             data-module="FullBleedVideo"
             data-animation="fade-in"
+            data-duration="400"
             class="<?php echo esc_attr( $video_component->class_names() ); ?>">
             <?php
             get_template_part(

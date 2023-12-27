@@ -1,4 +1,4 @@
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class Form extends ComponentClass {
     constructor(module: HTMLElement) {

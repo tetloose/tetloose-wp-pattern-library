@@ -1,11 +1,11 @@
 import styles from './hero.module.scss'
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class Hero extends ComponentClass {
     constructor(module: HTMLElement) {
         super(module)
 
-        this.cssModule(this.module, styles)
+        this.css(this.module, styles)
     }
 }
 

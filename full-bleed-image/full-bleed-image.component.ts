@@ -1,8 +1,10 @@
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class FullBleedImage extends ComponentClass {
     constructor(module: HTMLElement) {
         super(module)
+
+        this.load()
     }
 }
 

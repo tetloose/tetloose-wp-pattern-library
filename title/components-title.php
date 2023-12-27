@@ -51,8 +51,10 @@ if ( get_row_layout() == 'title' ) :
     if ( ! empty( $content ) ) :
         ?>
         <section
+            style="opacity: 0"
             data-module="Title"
             data-animation="fade-in"
+            data-duration="400"
             data-styles="<?php echo esc_attr( $title_component->styles() ); ?>"
             class="<?php echo esc_attr( $title_component->class_names() ); ?>">
             <div class="l-row">

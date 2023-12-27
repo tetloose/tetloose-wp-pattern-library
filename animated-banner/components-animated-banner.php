@@ -31,8 +31,10 @@ if ( get_row_layout() == 'animated_banner' ) :
     );
     ?>
     <section
+        style="opacity: 0"
         data-module="AnimatedBanner"
         data-animation="fade-in"
+        data-duration="400"
         data-styles="<?php echo esc_attr( $hero_component->styles() ); ?>"
         class="<?php echo esc_attr( $hero_component->class_names() ); ?>">
         <?php

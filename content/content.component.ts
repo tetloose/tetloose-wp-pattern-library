@@ -1,4 +1,4 @@
-import { ComponentClass } from '../../utilities'
+import { ComponentClass } from '@utilities'
 
 export class Content extends ComponentClass {
     constructor(module: HTMLElement) {

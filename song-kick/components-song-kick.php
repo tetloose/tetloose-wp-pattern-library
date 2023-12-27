@@ -55,8 +55,10 @@ if ( get_row_layout() == 'song_kick' ) :
     if ( ! empty( $artist_id ) && ! empty( $content_editor ) ) :
         ?>
         <section
+            style="opacity: 0"
             data-module="SongKick"
             data-animation="fade-in"
+            data-duration="400"
             data-styles="<?php echo esc_attr( $song_kick_component->styles() ); ?>"
             class="<?php echo esc_attr( $song_kick_component->class_names() ); ?>"
             data-artist-id="<?php echo esc_sql( $artist_id ); ?>"
