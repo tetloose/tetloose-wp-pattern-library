@@ -28,8 +28,6 @@ export class SongKick extends ComponentClass {
                 const res = await request<ResProps>(api)
                 const events = res.resultsPage.results.event
 
-                console.log(events)
-
                 if (events !== undefined) {
                     this.updateState('events', events)
                     this.showEvents()
