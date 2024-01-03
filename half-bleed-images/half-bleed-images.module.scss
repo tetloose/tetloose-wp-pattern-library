@@ -1,12 +1,6 @@
 @import '@styles/settings';
 
 .half-bleed {
-	display: flex;
-	flex-wrap: wrap;
 	width: 100%;
 	overflow: hidden;
-
-	:global([data-module=Figure]) {
-		width: 50%;
-	}
 }

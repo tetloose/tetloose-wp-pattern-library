@@ -30,33 +30,45 @@ if ( get_row_layout() == 'half_bleed_images' ) :
         class="<?php echo esc_attr( $half_bleed_component->class_names() ); ?>">
         <?php
         if ( have_rows( 'image_repeater' ) ) :
-            while ( have_rows( 'image_repeater' ) ) :
-                the_row();
-                $image = get_sub_field( 'image' );
-                $image_styles = get_sub_field( 'image_styles' );
-                $figure_component = new Module(
-                    [
-                        $image_styles['image_size'],
-                        $image_styles['image_alignment'],
-                    ],
-                    [
-                        'u-ratio-1x1',
-                        $image_styles['image_gradient'],
-                    ]
-                );
-                if ( ! empty( $image ) ) :
-                    get_template_part(
-                        'components/figure',
-                        null,
-                        array(
-                            'image' => $image,
-                            'styles' => esc_attr( $figure_component->styles() ),
-                            'class_names' => esc_attr( $figure_component->class_names() ),
-                            'animation_duration' => 400,
-                        )
-                    );
-                endif;
-            endwhile;
+            ?>
+            <div class="l-row is-fullwidth">
+                <?php
+                while ( have_rows( 'image_repeater' ) ) :
+                    ?>
+                    <div class="l-row__col is-half no-gutter">
+                        <?php
+                        the_row();
+                        $image = get_sub_field( 'image' );
+                        $image_styles = get_sub_field( 'image_styles' );
+                        $figure_component = new Module(
+                            [
+                                $image_styles['image_size'],
+                                $image_styles['image_alignment'],
+                            ],
+                            [
+                                'u-ratio-1x1',
+                                $image_styles['image_gradient'],
+                            ]
+                        );
+                        if ( ! empty( $image ) ) :
+                            get_template_part(
+                                'components/figure',
+                                null,
+                                array(
+                                    'image' => $image,
+                                    'styles' => esc_attr( $figure_component->styles() ),
+                                    'class_names' => esc_attr( $figure_component->class_names() ),
+                                    'animation_duration' => 400,
+                                )
+                            );
+                        endif;
+                        ?>
+                    </div>
+                    <?php
+                endwhile;
+                ?>
+            </div>
+            <?php
         endif;
         ?>
     </section>
