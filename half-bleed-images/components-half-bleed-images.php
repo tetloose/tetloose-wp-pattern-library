@@ -46,7 +46,7 @@ if ( get_row_layout() == 'half_bleed_images' ) :
                                 $image_styles['image_alignment'],
                             ],
                             [
-                                'u-ratio-1x1',
+                                $image_styles['image_ratio'],
                                 $image_styles['image_gradient'],
                             ]
                         );

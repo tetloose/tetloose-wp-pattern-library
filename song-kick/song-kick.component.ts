@@ -1,31 +1,61 @@
 import styles from './song-kick.module.scss'
 import { ComponentClass, AppendNode, request } from '@utilities'
-import { row, column, content } from '@html'
+import { row, column, content } from '@elements'
 import { ResProps } from './song-kick.types'
 
 export class SongKick extends ComponentClass {
     constructor(module: HTMLElement) {
         super(module)
-        this.state = {
-            artistId: module.dataset.artistId ? module.dataset.artistId : '',
-            artistCity: module.dataset.city ? module.dataset.city : 'City',
-            artistVenue: module.dataset.venue ? module.dataset.venue : 'Venue',
-            artistButtonText: module.dataset.buttonText ? module.dataset.buttonText : 'Tickets',
-            artistClassnames: module.dataset.artistClassnames ? module.dataset.artistClassnames : '',
-            fallback: module.dataset.fallback ? module.dataset.fallback : '',
-            events: null,
-            error: ''
-        }
 
-        this.css(this.module, styles)
+        this.css(module, styles)
+        this.setState()
+    }
+
+    setState() {
+        const { module } = this
+        const { dataset } = module
+        const { artistId, city, venue, buttonText, artistClassnames, fallback } = dataset
+
+        this.updateState('artistId', artistId ? artistId : '')
+        this.updateState('artistCity', city ? city : 'City')
+        this.updateState('artistVenue', venue ? venue : 'Venue')
+        this.updateState('artistButtonText', buttonText ? buttonText : 'Tickets')
+        this.updateState('artistClassnames', artistClassnames ? artistClassnames : '')
+        this.updateState('fallback', fallback ? fallback : '')
+        this.updateState('events', null)
+        this.updateState('error', '')
+        this.updateState('api', `https://api.songkick.com/api/3.0/artists/${artistId}/calendar.json?apikey=io09K9l3ebJxmxe2`)
         this.fetchEvents()
     }
+
+    // fetchEvents() {
+    //     const { state } = this
+
+    //     (async () => {
+    //         try {
+    //             const res = await request<ResProps>(state?.api)
+    //             const events = res.resultsPage.results.event
+
+    //             if (events !== undefined) {
+    //                 this.updateState('events', events)
+    //                 this.showEvents()
+    //             } else {
+    //                 this.showFallback()
+    //             }
+
+    //         }
+    //         catch (error) {
+    //             this.updateState('error', `${error}`)
+    //         }
+    //     })()
+    // }
 
     fetchEvents() {
         (async () => {
             try {
-                const api = `https://api.songkick.com/api/3.0/artists/${this.state?.artistId}/calendar.json?apikey=io09K9l3ebJxmxe2`
-                const res = await request<ResProps>(api)
+                const { state } = this
+                const { api } = state
+                const res = await request<ResProps>(api ? api.toString() : '')
                 const events = res.resultsPage.results.event
 
                 if (events !== undefined) {
@@ -43,9 +73,12 @@ export class SongKick extends ComponentClass {
     }
 
     showFallback() {
+        const { module, state } = this
+        const { fallback } = state
+
         const columns = column(
             content(
-                `${this.state?.fallback}`,
+                `${fallback ? fallback : ''}`,
                 ''
             ),
             {},
@@ -53,15 +86,16 @@ export class SongKick extends ComponentClass {
         )
 
         new AppendNode(
-            this.module,
+            module,
             row(columns)
         )
     }
 
     showEvents() {
-        if (this.state && this.state.events) {
-            const { events } = this.state
+        const { module, state } = this
+        const { events, artistCity, artistVenue, artistButtonText, artistClassnames } = state
 
+        if (state && events) {
             const columns = Object
                 .entries(events)
                 .map(event => {
@@ -77,14 +111,14 @@ export class SongKick extends ComponentClass {
                         <h3>${displayName}</h3>
                         <h4><small>${newDate.getDate()}/${newDate.getMonth() + 1}/${newDate.getFullYear()}</small></h4>
                         <ul>
-                            <li><strong>${this.state?.artistCity}: </strong>${location.city}</li>
-                            <li><strong>${this.state?.artistVenue}: </strong>${venue.displayName}</li>
+                            <li><strong>${artistCity}: </strong>${location.city}</li>
+                            <li><strong>${artistVenue}: </strong>${venue.displayName}</li>
                         </ul>
                         <div class="l-action is-align-right">
-                            <a class="u-btn is-inline" href="${uri}" target="_blank">${this.state?.artistButtonText}</a>
+                            <a class="u-btn is-inline" href="${uri}" target="_blank">${artistButtonText}</a>
                         </div>
                     `
-                    const classNames = `${this.state?.artistClassnames ? this.state?.artistClassnames : ''} ${styles['song-kick__content'] ? styles['song-kick__content'] : ''}`
+                    const classNames = `${artistClassnames ? artistClassnames : ''} ${styles['song-kick__content'] ? styles['song-kick__content'] : ''}`
 
                     return column(
                         content(
@@ -99,7 +133,7 @@ export class SongKick extends ComponentClass {
                 }).join('')
 
             new AppendNode(
-                this.module,
+                module,
                 row(columns)
             )
         }

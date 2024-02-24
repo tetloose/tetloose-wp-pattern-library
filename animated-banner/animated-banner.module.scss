@@ -79,14 +79,6 @@
 	position: relative;
 	overflow: hidden;
 
-	&.ratio-16x9 {
-		padding-bottom: intrinsic(1024, 576);
-	}
-
-	&.ratio-4x6 {
-		padding-bottom: intrinsic(640, 480);
-	}
-
 	&__plane {
 		position: absolute;
 		top: 5%;
@@ -96,6 +88,7 @@
 		animation-name: kf-plane;
 		animation-duration: 15s;
 		animation-timing-function: ease-in-out;
+		animation-delay: 1s;
 		animation-iteration-count: infinite;
 		animation-fill-mode: forwards;
 	}
@@ -107,6 +100,7 @@
 		animation-name: kf-clouds;
 		animation-duration: 8s;
 		animation-timing-function: ease-in-out;
+		animation-delay: 1s;
 		animation-iteration-count: infinite;
 		animation-direction: alternate-reverse;
 		animation-fill-mode: forwards;
@@ -121,6 +115,7 @@
 		animation-name: kf-buildings;
 		animation-duration: 2s;
 		animation-timing-function: ease-in-out;
+		animation-delay: 1s;
 		animation-delay: .5s;
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
@@ -136,6 +131,7 @@
 		animation-name: kf-aliens;
 		animation-duration: 2s;
 		animation-timing-function: ease-in-out;
+		animation-delay: 1s;
 		animation-delay: 2s;
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
@@ -148,6 +144,7 @@
 		height: 0;
 		animation-duration: 4s;
 		animation-timing-function: ease-in-out;
+		animation-delay: 1s;
 		animation-iteration-count: 2;
 		animation-direction: alternate-reverse;
 		animation-fill-mode: forwards;
@@ -185,6 +182,7 @@
 		animation-name: kf-logo;
 		animation-duration: 3s;
 		animation-timing-function: ease-in-out;
+		animation-delay: 1s;
 		animation-delay: 6s;
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;

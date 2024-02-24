@@ -7,7 +7,7 @@
  **/
 
 if ( get_row_layout() == 'content_with_image_aside' ) :
-    $half_bleed_component = new Module(
+    $cwia_component = new Module(
         [
             'content-image',
         ],
@@ -21,7 +21,8 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
         data-module="ContentImage"
         data-animation="fade-in"
         data-duration="400"
-        data-styles="<?php echo esc_attr( $half_bleed_component->styles() ); ?>">
+        data-styles="<?php echo esc_attr( $cwia_component->styles() ); ?>"
+        class="<?php echo esc_attr( $cwia_component->class_names() ); ?>">
         <?php
         if ( have_rows( 'content_image_repeater' ) ) :
             $content_image_count = 0;
@@ -46,6 +47,7 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                         $image_styles['image_alignment'],
                     ],
                     [
+                        'u-bg-image',
                         $image_styles['image_gradient'],
                     ]
                 );

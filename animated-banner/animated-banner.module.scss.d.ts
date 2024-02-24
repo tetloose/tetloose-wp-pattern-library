@@ -17,8 +17,6 @@ interface CssExports {
   'kf-plane': string;
   'kf-ufo-1': string;
   'kf-ufo-2': string;
-  'ratio-16x9': string;
-  'ratio-4x6': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

@@ -19,10 +19,10 @@ if ( get_row_layout() == 'animated_banner' ) :
     $hero_component = new Module(
         [
             'animated-banner',
-            $ratio,
         ],
         [
             'u-animate-hide',
+            $ratio,
             $bg_borders['background_color'],
             $bg_borders['border_color']
                 ? 'u-border-t ' . $bg_borders['border_color']
@@ -40,99 +40,85 @@ if ( get_row_layout() == 'animated_banner' ) :
         <?php
         if ( ! empty( $plane ) ) :
             get_template_part(
-                'components/partials-figure',
+                'components/figure',
                 null,
                 array(
                     'image' => $plane,
-                    'styles' => 'animated-banner__plane',
+                    'styles' => 'animated-banner__plane is-contain',
                     'class_names' => '',
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                    'rest' => '',
+                    'animation_duration' => 400,
                 )
             );
         endif;
         if ( ! empty( $clouds ) ) :
             get_template_part(
-                'components/partials-figure',
+                'components/figure',
                 null,
                 array(
                     'image' => $clouds,
-                    'styles' => 'animated-banner__clouds',
+                    'styles' => 'animated-banner__clouds is-contain',
                     'class_names' => '',
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                    'rest' => '',
+                    'animation_duration' => 400,
                 )
             );
         endif;
         if ( ! empty( $buildings ) ) :
             get_template_part(
-                'components/partials-figure',
+                'components/figure',
                 null,
                 array(
                     'image' => $buildings,
-                    'styles' => 'animated-banner__buildings',
+                    'styles' => 'animated-banner__buildings is-contain',
                     'class_names' => '',
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                    'rest' => '',
+                    'animation_duration' => 400,
                 )
             );
         endif;
         if ( ! empty( $aliens ) ) :
             get_template_part(
-                'components/partials-figure',
+                'components/figure',
                 null,
                 array(
                     'image' => $aliens,
-                    'styles' => 'animated-banner__aliens',
-                    'class_names' => 'is-contain',
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                    'rest' => '',
+                    'styles' => 'animated-banner__aliens is-contain',
+                    'class_names' => '',
+                    'animation_duration' => 400,
                 )
             );
         endif;
         if ( ! empty( $ufo_1 ) ) :
             get_template_part(
-                'components/partials-figure',
+                'components/figure',
                 null,
                 array(
                     'image' => $ufo_1,
-                    'styles' => 'animated-banner__ufo is-1',
-                    'class_names' => 'is-contain',
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                    'rest' => '',
+                    'styles' => 'animated-banner__ufo is-1 is-contain',
+                    'class_names' => '',
+                    'animation_duration' => 400,
                 )
             );
         endif;
         if ( ! empty( $ufo_2 ) ) :
             get_template_part(
-                'components/partials-figure',
+                'components/figure',
                 null,
                 array(
                     'image' => $ufo_2,
-                    'styles' => 'animated-banner__ufo is-2',
-                    'class_names' => 'is-contain',
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                    'rest' => '',
+                    'styles' => 'animated-banner__ufo is-2 is-contain',
+                    'class_names' => '',
+                    'animation_duration' => 400,
                 )
             );
         endif;
         if ( ! empty( $logo ) ) :
             get_template_part(
-                'components/partials-figure',
+                'components/figure',
                 null,
                 array(
                     'image' => $logo,
-                    'styles' => 'animated-banner__logo',
-                    'class_names' => 'is-contain',
-                    'animation' => 'fade-in',
-                    'animation_duration' => 200,
-                    'rest' => '',
+                    'styles' => 'animated-banner__logo is-contain',
+                    'class_names' => '',
+                    'animation_duration' => 400,
                 )
             );
         endif;

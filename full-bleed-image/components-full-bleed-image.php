@@ -11,9 +11,7 @@ if ( get_row_layout() == 'full_bleed_image' ) :
     $image_styles = get_sub_field( 'image_styles' );
     $bg_borders = get_sub_field( 'bg_borders' );
     $full_bleed_component = new Module(
-        [
-            'full-bleed',
-        ],
+        [],
         [
             'u-animate-hide',
             $bg_borders['background_color'],
@@ -28,7 +26,7 @@ if ( get_row_layout() == 'full_bleed_image' ) :
             $image_styles['image_alignment'],
         ],
         [
-            'u-ratio-16x7',
+            $image_styles['image_ratio'],
             $image_styles['image_gradient'],
         ]
     );

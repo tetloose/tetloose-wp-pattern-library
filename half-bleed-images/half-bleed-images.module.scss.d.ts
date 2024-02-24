@@ -2,7 +2,6 @@
 // Please do not change this file!
 interface CssExports {
   'half-bleed': string;
-  'half-bleed__figure': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

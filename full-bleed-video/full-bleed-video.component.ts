@@ -3,6 +3,8 @@ import { ComponentClass } from '@utilities'
 export class FullBleedVideo extends ComponentClass {
     constructor(module: HTMLElement) {
         super(module)
+
+        this.load()
     }
 }
 

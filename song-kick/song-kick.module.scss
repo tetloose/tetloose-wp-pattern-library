@@ -3,6 +3,16 @@
 .song-kick {
 	display: block;
 
+	:global(.l-row) {
+		@include mq(vars(breakpoint, med), max-width) {
+			margin-top: -#{rem(rem(vars(layout, gutter)))};
+		}
+
+		@include mq(vars(breakpoint, med)) {
+			margin-top: -#{calc(rem(vars(layout, gutter)) * 2)};
+		}
+	}
+
 	&__artist {
 		width: 100%;
 
@@ -12,10 +22,6 @@
 
 		@include mq(vars(breakpoint, med)) {
 			margin-top: calc(rem(vars(layout, gutter)) * 2);
-		}
-
-		&:first-child {
-			margin-top: 0;
 		}
 
 		&:nth-child(2) {
@@ -29,7 +35,14 @@
 		}
 
 		@include mq(vars(breakpoint, med)) {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
 			padding: rem(spacing(2));
 		}
+	}
+
+	:global(.l-action) {
+		margin-top: auto;
 	}
 }
