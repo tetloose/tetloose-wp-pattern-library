@@ -1,5 +1,5 @@
 @import '@styles/settings';
 
 .sub-title {
-	margin-top: -(rem(spacing(.5)));
+	@include sizing('margin-top', size(-2));
 }

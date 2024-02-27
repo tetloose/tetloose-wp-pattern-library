@@ -1,18 +1,18 @@
-# Animated banner,
+# Animated banner
 
-Add several images and apply animations to them.
+Animated banner component, add images apply animations to them.
 
 ## Module.ts
 
 Update `src/js/config/modules.config.ts` with:
 
-`AnimatedBanner: () => import(/* webpackChunkName: "animated-banner" */ '../components/animated-banner/animated-banner.component')`
+`AnimatedBanner: () => import(/* webpackChunkName: "animated-banner" */ '@components/animated-banner/animated-banner.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Animated Banner
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Animated Banner`
+- id: `animated_banner`
 
 ## Navigation
 

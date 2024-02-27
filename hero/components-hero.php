@@ -14,7 +14,7 @@ if ( get_row_layout() == 'hero' ) :
             'hero',
         ],
         [
-            'u-animate-hide',
+            'u-load-hide',
             $bg_borders['background_color'],
             $bg_borders['border_color']
                 ? 'u-border-t ' . $bg_borders['border_color']

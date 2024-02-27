@@ -6,13 +6,13 @@ Full width video component, add YouTube / Vimeo Links into the editor to build i
 
 Update `src/js/config/modules.config.ts` with:
 
-`FullBleedVideo: () => import(/* webpackChunkName: "full-bleed-video" */ '../components/full-bleed-video/full-bleed-video.component')`
+`FullBleedVideo: () => import(/* webpackChunkName: "full-bleed-video" */ '@components/full-bleed-video/full-bleed-video.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Full Bleed Video
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Full bleed video`
+- id: `full_bleed_video`
 
 ## Navigation
 

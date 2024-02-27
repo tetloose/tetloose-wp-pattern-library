@@ -18,7 +18,7 @@ if ( get_row_layout() == 'content' ) :
     $content_component = new Module(
         [],
         [
-            'u-animate-hide',
+            'u-load-hide',
             $spacing['bottom'],
             $bg_borders['background_color'],
             $bg_borders['border_color']

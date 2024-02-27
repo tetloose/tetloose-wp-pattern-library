@@ -6,13 +6,13 @@ Add form shortcode. Mainly used with Contact Form 7.
 
 Update `src/js/config/modules.config.ts` with:
 
-`Form: () => import(/* webpackChunkName: "form" */ '../components/form/form.component')`
+`Form: () => import(/* webpackChunkName: "form" */ '@components/form/form.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Form
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Form`
+- id: `form`
 
 ## Navigation
 

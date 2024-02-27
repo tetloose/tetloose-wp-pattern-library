@@ -6,13 +6,13 @@ Image and body copy, options to use page / post title.
 
 Update `src/js/config/modules.config.ts` with:
 
-`Hero: () => import(/* webpackChunkName: "hero" */ '../components/hero/hero.component')`
+`Hero: () => import(/* webpackChunkName: "hero" */ '@components/hero/hero.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Hero
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Hero`
+- id: `hero`
 
 ## Navigation
 

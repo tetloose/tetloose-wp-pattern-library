@@ -28,28 +28,6 @@ export class SongKick extends ComponentClass {
         this.fetchEvents()
     }
 
-    // fetchEvents() {
-    //     const { state } = this
-
-    //     (async () => {
-    //         try {
-    //             const res = await request<ResProps>(state?.api)
-    //             const events = res.resultsPage.results.event
-
-    //             if (events !== undefined) {
-    //                 this.updateState('events', events)
-    //                 this.showEvents()
-    //             } else {
-    //                 this.showFallback()
-    //             }
-
-    //         }
-    //         catch (error) {
-    //             this.updateState('error', `${error}`)
-    //         }
-    //     })()
-    // }
-
     fetchEvents() {
         (async () => {
             try {
@@ -79,7 +57,7 @@ export class SongKick extends ComponentClass {
         const columns = column(
             content(
                 `${fallback ? fallback : ''}`,
-                ''
+                styles['song-kick__fallback']
             ),
             {},
             ''

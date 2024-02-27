@@ -6,13 +6,13 @@ Add a Title, has options to use page / post title.
 
 Update `src/js/config/modules.config.ts` with:
 
-`Title: () => import(/* webpackChunkName: "title" */ '../components/title/title.component')`
+`Title: () => import(/* webpackChunkName: "title" */ '@components/title/title.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Title
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Title`
+- id: `title`
 
 ## Navigation
 

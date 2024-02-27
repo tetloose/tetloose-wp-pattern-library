@@ -6,13 +6,13 @@ Full width image.
 
 Update `src/js/config/modules.config.ts` with:
 
-`FullBleedImage: () => import(/* webpackChunkName: "full-bleed-image" */ '../components/full-bleed-image/full-bleed-image.component')`
+`FullBleedImage: () => import(/* webpackChunkName: "full-bleed-image" */ '@components/full-bleed-image/full-bleed-image.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Full Bleed Image
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Full bleed image`
+- id: `full_bleed_image`
 
 ## Navigation
 

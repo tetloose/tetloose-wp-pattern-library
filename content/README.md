@@ -6,13 +6,13 @@ Repeater component, add columns of content.
 
 Update `src/js/config/modules.config.ts` with:
 
-`Content: () => import(/* webpackChunkName: "content" */ '../components/content/content.component')`
+`Content: () => import(/* webpackChunkName: "content" */ '@components/content/content.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Content
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Content`
+- id: `content`
 
 ## Navigation
 

@@ -10,11 +10,11 @@ $image_styles = get_sub_field( 'image_styles' );
 $figure_component = new Module(
     [
         'hero__image',
-        $image_styles['image_size'],
-        $image_styles['image_alignment'],
     ],
     [
-        'u-bg-image',
+        'is-absolute',
+        $image_styles['image_size'],
+        $image_styles['image_alignment'],
         $image_styles['image_gradient'],
     ]
 );

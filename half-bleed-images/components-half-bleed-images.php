@@ -13,7 +13,7 @@ if ( get_row_layout() == 'half_bleed_images' ) :
             'half-bleed',
         ],
         [
-            'u-animate-hide',
+            'u-load-hide',
             $bg_borders['background_color'],
             $bg_borders['border_color']
                 ? 'u-border-t ' . $bg_borders['border_color']
@@ -41,11 +41,10 @@ if ( get_row_layout() == 'half_bleed_images' ) :
                         $image = get_sub_field( 'image' );
                         $image_styles = get_sub_field( 'image_styles' );
                         $figure_component = new Module(
+                            [],
                             [
                                 $image_styles['image_size'],
                                 $image_styles['image_alignment'],
-                            ],
-                            [
                                 $image_styles['image_ratio'],
                                 $image_styles['image_gradient'],
                             ]

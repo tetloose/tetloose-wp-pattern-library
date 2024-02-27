@@ -6,7 +6,7 @@
 	}
 
 	&__row {
-		@include mq(vars(breakpoint, lrg)) {
+		@include mq(vars(breakpoint, med)) {
 			display: flex;
 			min-height: 50vh;
 			align-items: center;
@@ -14,21 +14,26 @@
 	}
 
 	&__figure {
-		@include mq(vars(breakpoint, lrg)) {
+		@include mq(vars(breakpoint, med), max-width) {
+			position: static;
+		}
+
+		@include mq(vars(breakpoint, med)) {
 			position: absolute;
 			top: 0;
 			bottom: 0;
 			width: 50%;
+			aspect-ratio: auto;
 		}
 
 		&--left {
-			@include mq(vars(breakpoint, lrg)) {
+			@include mq(vars(breakpoint, med)) {
 				left: 0;
 			}
 		}
 
 		&--right {
-			@include mq(vars(breakpoint, lrg)) {
+			@include mq(vars(breakpoint, med)) {
 				right: 0;
 			}
 		}
@@ -36,14 +41,14 @@
 
 	&__content {
 		&--left {
-			@include mq(vars(breakpoint, lrg)) {
-				padding-left: rem(vars(layout, gutter));
+			@include mq(vars(breakpoint, med)) {
+				@include sizing('padding-left', size(4));
 			}
 		}
 
 		&--right {
-			@include mq(vars(breakpoint, lrg)) {
-				padding-right: rem(vars(layout, gutter));
+			@include mq(vars(breakpoint, med)) {
+				@include sizing('padding-right', size(4));
 			}
 		}
 	}

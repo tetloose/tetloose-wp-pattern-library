@@ -6,13 +6,13 @@ Image repeater, 50% width.
 
 Update `src/js/config/modules.config.ts` with:
 
-`HalfBleedImages: () => import(/* webpackChunkName: "half-bleed-images" */ '../components/half-bleed-images/half-bleed-images.component')`
+`HalfBleedImages: () => import(/* webpackChunkName: "half-bleed-images" */ '@components/half-bleed-images/half-bleed-images.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Half Bleed Images
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Half bleed images`
+- id: `half_bleed_images`
 
 ## Navigation
 

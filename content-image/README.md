@@ -6,13 +6,13 @@ Image left content right alternating.
 
 Update `src/js/config/modules.config.ts` with:
 
-`ContentImage: () => import(/* webpackChunkName: "content-image" */ '../components/content-image/content-image.component')`
+`ContentImage: () => import(/* webpackChunkName: "content-image" */ '@components/content-image/content-image.component')`
 
-## ACF Flexible Content Name
+## ACF Flexible Content Component
 
-**ACF** -> **Shared Fields** -> **Components**
-
-Content With Image Aside
+- Location: `**ACF** -> **Shared Fields** -> **Components**`
+- Name: `Content with image aside`
+- id: `content_with_image_aside`
 
 ## Navigation
 

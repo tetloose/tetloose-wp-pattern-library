@@ -17,7 +17,7 @@ if ( get_row_layout() == 'form' ) :
     $form_component = new Module(
         [],
         [
-            'u-animate-hide',
+            'u-load-hide',
             $spacing['top'],
             $spacing['bottom'],
             $bg_borders['background_color'],

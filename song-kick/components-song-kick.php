@@ -23,7 +23,7 @@ if ( get_row_layout() == 'song_kick' ) :
             'song-kick',
         ],
         [
-            'u-animate-hide',
+            'u-load-hide',
             $spacing['top'],
             $spacing['bottom'],
             $bg_borders['background_color'],

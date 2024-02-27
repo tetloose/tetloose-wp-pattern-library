@@ -12,7 +12,7 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
             'content-image',
         ],
         [
-            'u-animate-hide',
+            'u-load-hide',
         ]
     );
     ?>
@@ -43,11 +43,11 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                         $content_image_count > 0
                             ? 'content-image__figure--left'
                             : 'content-image__figure--right',
-                        $image_styles['image_size'],
-                        $image_styles['image_alignment'],
                     ],
                     [
-                        'u-bg-image',
+                        $image_styles['image_size'],
+                        $image_styles['image_alignment'],
+                        $image_styles['image_ratio'],
                         $image_styles['image_gradient'],
                     ]
                 );
@@ -116,7 +116,7 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                     <div
                         data-styles="<?php echo esc_attr( $row_component->styles() ); ?>"
                         class="<?php echo esc_attr( $row_component->class_names() ); ?>">
-                        <div class="l-row__col is-lrg-half">
+                        <div class="l-row__col is-med-half">
                             <?php
                             if ( ! empty( $content_editor ) ) :
                                 get_template_part(

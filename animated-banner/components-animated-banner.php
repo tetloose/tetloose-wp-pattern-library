@@ -8,7 +8,7 @@
 
 if ( get_row_layout() == 'animated_banner' ) :
     $bg_borders = get_sub_field( 'bg_borders' );
-    $ratio = get_sub_field( 'ratio' );
+    $height = get_sub_field( 'height' );
     $plane = get_sub_field( 'plane' );
     $clouds = get_sub_field( 'clouds' );
     $buildings = get_sub_field( 'buildings' );
@@ -21,12 +21,18 @@ if ( get_row_layout() == 'animated_banner' ) :
             'animated-banner',
         ],
         [
-            'u-animate-hide',
-            $ratio,
+            'u-load-hide',
+            $height,
             $bg_borders['background_color'],
             $bg_borders['border_color']
                 ? 'u-border-t ' . $bg_borders['border_color']
                 : '',
+        ]
+    );
+    $figure_component = new Module(
+        [],
+        [
+            'is-contain',
         ]
     );
     ?>
@@ -44,8 +50,8 @@ if ( get_row_layout() == 'animated_banner' ) :
                 null,
                 array(
                     'image' => $plane,
-                    'styles' => 'animated-banner__plane is-contain',
-                    'class_names' => '',
+                    'styles' => 'animated-banner__plane',
+                    'class_names' => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -56,8 +62,8 @@ if ( get_row_layout() == 'animated_banner' ) :
                 null,
                 array(
                     'image' => $clouds,
-                    'styles' => 'animated-banner__clouds is-contain',
-                    'class_names' => '',
+                    'styles' => 'animated-banner__clouds',
+                    'class_names' => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -68,8 +74,8 @@ if ( get_row_layout() == 'animated_banner' ) :
                 null,
                 array(
                     'image' => $buildings,
-                    'styles' => 'animated-banner__buildings is-contain',
-                    'class_names' => '',
+                    'styles' => 'animated-banner__buildings',
+                    'class_names' => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -80,8 +86,8 @@ if ( get_row_layout() == 'animated_banner' ) :
                 null,
                 array(
                     'image' => $aliens,
-                    'styles' => 'animated-banner__aliens is-contain',
-                    'class_names' => '',
+                    'styles' => 'animated-banner__aliens',
+                    'class_names' => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -92,8 +98,8 @@ if ( get_row_layout() == 'animated_banner' ) :
                 null,
                 array(
                     'image' => $ufo_1,
-                    'styles' => 'animated-banner__ufo is-1 is-contain',
-                    'class_names' => '',
+                    'styles' => 'animated-banner__ufo is-1',
+                    'class_names' => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -104,8 +110,8 @@ if ( get_row_layout() == 'animated_banner' ) :
                 null,
                 array(
                     'image' => $ufo_2,
-                    'styles' => 'animated-banner__ufo is-2 is-contain',
-                    'class_names' => '',
+                    'styles' => 'animated-banner__ufo is-2',
+                    'class_names' => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -116,8 +122,8 @@ if ( get_row_layout() == 'animated_banner' ) :
                 null,
                 array(
                     'image' => $logo,
-                    'styles' => 'animated-banner__logo is-contain',
-                    'class_names' => '',
+                    'styles' => 'animated-banner__logo',
+                    'class_names' => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );

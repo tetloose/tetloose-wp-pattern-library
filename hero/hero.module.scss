@@ -23,7 +23,8 @@
 
 		&-inside {
 			display: inline-block;
-			padding: rem(spacing(.5)) rem(spacing(1));
+
+			@include sizing('padding', [size(2), size(4)]);
 		}
 	}
 }

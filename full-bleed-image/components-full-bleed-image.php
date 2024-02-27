@@ -13,7 +13,7 @@ if ( get_row_layout() == 'full_bleed_image' ) :
     $full_bleed_component = new Module(
         [],
         [
-            'u-animate-hide',
+            'u-load-hide',
             $bg_borders['background_color'],
             $bg_borders['border_color']
                 ? 'u-border-t ' . $bg_borders['border_color']
@@ -21,11 +21,10 @@ if ( get_row_layout() == 'full_bleed_image' ) :
         ]
     );
     $figure_component = new Module(
+        [],
         [
             $image_styles['image_size'],
             $image_styles['image_alignment'],
-        ],
-        [
             $image_styles['image_ratio'],
             $image_styles['image_gradient'],
         ]
