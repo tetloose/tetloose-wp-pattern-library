@@ -6,9 +6,9 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'hero' ) :
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $selection = get_sub_field( 'selection' );
+if ( get_row_layout() === 'hero' ) :
+    $bg_borders     = get_sub_field( 'bg_borders' );
+    $selection      = get_sub_field( 'selection' );
     $hero_component = new Module(
         [
             'hero',

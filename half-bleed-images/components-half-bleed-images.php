@@ -6,8 +6,8 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'half_bleed_images' ) :
-    $bg_borders = get_sub_field( 'bg_borders' );
+if ( get_row_layout() === 'half_bleed_images' ) :
+    $bg_borders           = get_sub_field( 'bg_borders' );
     $half_bleed_component = new Module(
         [
             'half-bleed',
@@ -38,8 +38,8 @@ if ( get_row_layout() == 'half_bleed_images' ) :
                     <div class="l-row__col is-half no-gutter">
                         <?php
                         the_row();
-                        $image = get_sub_field( 'image' );
-                        $image_styles = get_sub_field( 'image_styles' );
+                        $image            = get_sub_field( 'image' );
+                        $image_styles     = get_sub_field( 'image_styles' );
                         $figure_component = new Module(
                             [],
                             [
@@ -54,9 +54,9 @@ if ( get_row_layout() == 'half_bleed_images' ) :
                                 'components/figure',
                                 null,
                                 array(
-                                    'image' => $image,
-                                    'styles' => esc_attr( $figure_component->styles() ),
-                                    'class_names' => esc_attr( $figure_component->class_names() ),
+                                    'image'              => $image,
+                                    'styles'             => esc_attr( $figure_component->styles() ),
+                                    'class_names'        => esc_attr( $figure_component->class_names() ),
                                     'animation_duration' => 400,
                                 )
                             );

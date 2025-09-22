@@ -6,19 +6,19 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'song_kick' ) :
-    $artist_id = get_sub_field( 'artist_id' );
-    $city = get_sub_field( 'city' );
-    $venue = get_sub_field( 'venue' );
-    $button_text = get_sub_field( 'button_text' );
-    $content_editor = get_sub_field( 'content_editor' );
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $content_styles = get_sub_field( 'content_styles' );
-    $btn_styles = get_sub_field( 'btn_styles' );
+if ( get_row_layout() === 'song_kick' ) :
+    $artist_id                  = get_sub_field( 'artist_id' );
+    $city                       = get_sub_field( 'city' );
+    $venue                      = get_sub_field( 'venue' );
+    $button_text                = get_sub_field( 'button_text' );
+    $content_editor             = get_sub_field( 'content_editor' );
+    $spacing                    = get_sub_field( 'spacing' );
+    $bg_borders                 = get_sub_field( 'bg_borders' );
+    $content_styles             = get_sub_field( 'content_styles' );
+    $btn_styles                 = get_sub_field( 'btn_styles' );
     $artist_styles_border_color = get_sub_field( 'artist_styles_border_color' );
-    $selection = get_sub_field( 'selection' );
-    $song_kick_component = new Module(
+    $selection                  = get_sub_field( 'selection' );
+    $song_kick_component        = new Module(
         [
             'song-kick',
         ],
@@ -44,7 +44,7 @@ if ( get_row_layout() == 'song_kick' ) :
             $selection['background_color'],
         ]
     );
-    $artist_component = new Module(
+    $artist_component           = new Module(
         [],
         [
             $artist_styles_border_color

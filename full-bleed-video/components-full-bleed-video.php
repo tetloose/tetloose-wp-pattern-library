@@ -6,10 +6,10 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'full_bleed_video' ) :
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $ratio = get_sub_field( 'ratio' );
-    $content_editor = get_sub_field( 'content_editor' );
+if ( get_row_layout() === 'full_bleed_video' ) :
+    $bg_borders      = get_sub_field( 'bg_borders' );
+    $ratio           = get_sub_field( 'ratio' );
+    $content_editor  = get_sub_field( 'content_editor' );
     $video_component = new Module(
         [],
         [
@@ -40,9 +40,9 @@ if ( get_row_layout() == 'full_bleed_video' ) :
                 'components/iframe',
                 null,
                 array(
-                    'element' => esc_attr( $content_editor ),
-                    'styles' => esc_attr( $video_partial->styles() ),
-                    'class_names' => esc_attr( $video_partial->class_names() ),
+                    'element'            => esc_attr( $content_editor ),
+                    'styles'             => esc_attr( $video_partial->styles() ),
+                    'class_names'        => esc_attr( $video_partial->class_names() ),
                     'animation_duration' => 400,
                 )
             );

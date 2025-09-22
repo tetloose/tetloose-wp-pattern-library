@@ -6,10 +6,10 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'full_bleed_image' ) :
-    $image = get_sub_field( 'image' );
-    $image_styles = get_sub_field( 'image_styles' );
-    $bg_borders = get_sub_field( 'bg_borders' );
+if ( get_row_layout() === 'full_bleed_image' ) :
+    $image                = get_sub_field( 'image' );
+    $image_styles         = get_sub_field( 'image_styles' );
+    $bg_borders           = get_sub_field( 'bg_borders' );
     $full_bleed_component = new Module(
         [],
         [
@@ -20,7 +20,7 @@ if ( get_row_layout() == 'full_bleed_image' ) :
                 : '',
         ]
     );
-    $figure_component = new Module(
+    $figure_component     = new Module(
         [],
         [
             $image_styles['image_size'],
@@ -43,9 +43,9 @@ if ( get_row_layout() == 'full_bleed_image' ) :
                     'components/figure',
                     null,
                     array(
-                        'image' => $image,
-                        'styles' => esc_attr( $figure_component->styles() ),
-                        'class_names' => esc_attr( $figure_component->class_names() ),
+                        'image'              => $image,
+                        'styles'             => esc_attr( $figure_component->styles() ),
+                        'class_names'        => esc_attr( $figure_component->class_names() ),
                         'animation_duration' => 400,
                     )
                 );

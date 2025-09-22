@@ -5,8 +5,8 @@
  * @package Tetloose-Theme
  **/
 
-$image = get_sub_field( 'image' );
-$image_styles = get_sub_field( 'image_styles' );
+$image            = get_sub_field( 'image' );
+$image_styles     = get_sub_field( 'image_styles' );
 $figure_component = new Module(
     [
         'hero__image',
@@ -24,9 +24,9 @@ if ( ! empty( $image ) ) :
         'components/figure',
         null,
         array(
-            'image' => $image,
-            'styles' => esc_attr( $figure_component->styles() ),
-            'class_names' => esc_attr( $figure_component->class_names() ),
+            'image'              => $image,
+            'styles'             => esc_attr( $figure_component->styles() ),
+            'class_names'        => esc_attr( $figure_component->class_names() ),
             'animation_duration' => 400,
         )
     );

@@ -6,7 +6,7 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'content_with_image_aside' ) :
+if ( get_row_layout() === 'content_with_image_aside' ) :
     $cwia_component = new Module(
         [
             'content-image',
@@ -29,15 +29,15 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
 
             while ( have_rows( 'content_image_repeater' ) ) :
                 the_row();
-                $content_editor = get_sub_field( 'content_editor' );
-                $spacing = get_sub_field( 'spacing' );
-                $bg_borders = get_sub_field( 'bg_borders' );
-                $content_styles = get_sub_field( 'content_styles' );
-                $btn_styles = get_sub_field( 'btn_styles' );
-                $image = get_sub_field( 'image' );
-                $image_styles = get_sub_field( 'image_styles' );
-                $selection = get_sub_field( 'selection' );
-                $figure_component = new Module(
+                $content_editor      = get_sub_field( 'content_editor' );
+                $spacing             = get_sub_field( 'spacing' );
+                $bg_borders          = get_sub_field( 'bg_borders' );
+                $content_styles      = get_sub_field( 'content_styles' );
+                $btn_styles          = get_sub_field( 'btn_styles' );
+                $image               = get_sub_field( 'image' );
+                $image_styles        = get_sub_field( 'image_styles' );
+                $selection           = get_sub_field( 'selection' );
+                $figure_component    = new Module(
                     [
                         'content-image__figure',
                         $content_image_count > 0
@@ -74,7 +74,7 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                         $selection['background_color'],
                     ]
                 );
-                $row_component = new Module(
+                $row_component       = new Module(
                     [
                         'content-image__row',
                     ],
@@ -85,7 +85,7 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                             : 'u-align-left',
                     ]
                 );
-                $content_component = new Module(
+                $content_component   = new Module(
                     [
                         'content-image__content',
                         $content_image_count > 0
@@ -106,9 +106,9 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                         'components/figure',
                         null,
                         array(
-                            'image' => $image,
-                            'styles' => esc_attr( $figure_component->styles() ),
-                            'class_names' => esc_attr( $figure_component->class_names() ),
+                            'image'              => $image,
+                            'styles'             => esc_attr( $figure_component->styles() ),
+                            'class_names'        => esc_attr( $figure_component->class_names() ),
                             'animation_duration' => 400,
                         )
                     );
@@ -123,9 +123,9 @@ if ( get_row_layout() == 'content_with_image_aside' ) :
                                     'components/partials-content',
                                     null,
                                     array(
-                                        'styles' => esc_attr( $content_component->styles() ),
+                                        'styles'      => esc_attr( $content_component->styles() ),
                                         'class_names' => esc_attr( $content_component->class_names() ),
-                                        'content' => $content_editor,
+                                        'content'     => $content_editor,
                                     )
                                 );
                             endif;

@@ -6,16 +6,16 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'content' ) :
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $content_styles = get_sub_field( 'content_styles' );
-    $btn_styles = get_sub_field( 'btn_styles' );
-    $selection = get_sub_field( 'selection' );
+if ( get_row_layout() === 'content' ) :
+    $spacing                = get_sub_field( 'spacing' );
+    $bg_borders             = get_sub_field( 'bg_borders' );
+    $content_styles         = get_sub_field( 'content_styles' );
+    $btn_styles             = get_sub_field( 'btn_styles' );
+    $selection              = get_sub_field( 'selection' );
     $count_content_repeater = count( get_sub_field( 'content_repeater' ) )
         ? count( get_sub_field( 'content_repeater' ) )
         : 1;
-    $content_component = new Module(
+    $content_component      = new Module(
         [],
         [
             'u-load-hide',
@@ -38,7 +38,7 @@ if ( get_row_layout() == 'content' ) :
             $selection['background_color'],
         ]
     );
-    $column_component = new Module(
+    $column_component       = new Module(
         [],
         [
             'l-row__col',
@@ -72,9 +72,9 @@ if ( get_row_layout() == 'content' ) :
                                 'components/partials-content',
                                 null,
                                 array(
-                                    'styles' => '',
+                                    'styles'      => '',
                                     'class_names' => '',
-                                    'content' => $content_editor,
+                                    'content'     => $content_editor,
                                 )
                             );
                         endif;

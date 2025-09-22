@@ -6,17 +6,17 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'animated_banner' ) :
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $height = get_sub_field( 'height' );
-    $plane = get_sub_field( 'plane' );
-    $clouds = get_sub_field( 'clouds' );
-    $buildings = get_sub_field( 'buildings' );
-    $aliens = get_sub_field( 'aliens' );
-    $ufo_1 = get_sub_field( 'ufo_1' );
-    $ufo_2 = get_sub_field( 'ufo_2' );
-    $logo = get_sub_field( 'logo' );
-    $hero_component = new Module(
+if ( get_row_layout() === 'animated_banner' ) :
+    $bg_borders       = get_sub_field( 'bg_borders' );
+    $height           = get_sub_field( 'height' );
+    $plane            = get_sub_field( 'plane' );
+    $clouds           = get_sub_field( 'clouds' );
+    $buildings        = get_sub_field( 'buildings' );
+    $aliens           = get_sub_field( 'aliens' );
+    $ufo_1            = get_sub_field( 'ufo_1' );
+    $ufo_2            = get_sub_field( 'ufo_2' );
+    $logo             = get_sub_field( 'logo' );
+    $hero_component   = new Module(
         [
             'animated-banner',
         ],
@@ -49,9 +49,9 @@ if ( get_row_layout() == 'animated_banner' ) :
                 'components/figure',
                 null,
                 array(
-                    'image' => $plane,
-                    'styles' => 'animated-banner__plane',
-                    'class_names' => esc_attr( $figure_component->class_names() ),
+                    'image'              => $plane,
+                    'styles'             => 'animated-banner__plane',
+                    'class_names'        => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -61,9 +61,9 @@ if ( get_row_layout() == 'animated_banner' ) :
                 'components/figure',
                 null,
                 array(
-                    'image' => $clouds,
-                    'styles' => 'animated-banner__clouds',
-                    'class_names' => esc_attr( $figure_component->class_names() ),
+                    'image'              => $clouds,
+                    'styles'             => 'animated-banner__clouds',
+                    'class_names'        => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -73,9 +73,9 @@ if ( get_row_layout() == 'animated_banner' ) :
                 'components/figure',
                 null,
                 array(
-                    'image' => $buildings,
-                    'styles' => 'animated-banner__buildings',
-                    'class_names' => esc_attr( $figure_component->class_names() ),
+                    'image'              => $buildings,
+                    'styles'             => 'animated-banner__buildings',
+                    'class_names'        => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -85,9 +85,9 @@ if ( get_row_layout() == 'animated_banner' ) :
                 'components/figure',
                 null,
                 array(
-                    'image' => $aliens,
-                    'styles' => 'animated-banner__aliens',
-                    'class_names' => esc_attr( $figure_component->class_names() ),
+                    'image'              => $aliens,
+                    'styles'             => 'animated-banner__aliens',
+                    'class_names'        => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -97,9 +97,9 @@ if ( get_row_layout() == 'animated_banner' ) :
                 'components/figure',
                 null,
                 array(
-                    'image' => $ufo_1,
-                    'styles' => 'animated-banner__ufo is-1',
-                    'class_names' => esc_attr( $figure_component->class_names() ),
+                    'image'              => $ufo_1,
+                    'styles'             => 'animated-banner__ufo is-1',
+                    'class_names'        => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -109,9 +109,9 @@ if ( get_row_layout() == 'animated_banner' ) :
                 'components/figure',
                 null,
                 array(
-                    'image' => $ufo_2,
-                    'styles' => 'animated-banner__ufo is-2',
-                    'class_names' => esc_attr( $figure_component->class_names() ),
+                    'image'              => $ufo_2,
+                    'styles'             => 'animated-banner__ufo is-2',
+                    'class_names'        => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );
@@ -121,9 +121,9 @@ if ( get_row_layout() == 'animated_banner' ) :
                 'components/figure',
                 null,
                 array(
-                    'image' => $logo,
-                    'styles' => 'animated-banner__logo',
-                    'class_names' => esc_attr( $figure_component->class_names() ),
+                    'image'              => $logo,
+                    'styles'             => 'animated-banner__logo',
+                    'class_names'        => esc_attr( $figure_component->class_names() ),
                     'animation_duration' => 400,
                 )
             );

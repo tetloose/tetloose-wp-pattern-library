@@ -6,12 +6,12 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'music' ) :
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $content_styles = get_sub_field( 'content_styles' );
-    $btn_styles = get_sub_field( 'btn_styles' );
-    $selection = get_sub_field( 'selection' );
+if ( get_row_layout() === 'music' ) :
+    $spacing         = get_sub_field( 'spacing' );
+    $bg_borders      = get_sub_field( 'bg_borders' );
+    $content_styles  = get_sub_field( 'content_styles' );
+    $btn_styles      = get_sub_field( 'btn_styles' );
+    $selection       = get_sub_field( 'selection' );
     $music_component = new Module(
         [
             'music',

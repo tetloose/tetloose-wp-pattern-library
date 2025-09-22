@@ -6,25 +6,25 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'title' ) :
-    $use_post_title = get_sub_field( 'use_post_title' );
-    $post_title = is_archive()
+if ( get_row_layout() === 'title' ) :
+    $use_post_title    = get_sub_field( 'use_post_title' );
+    $post_title        = is_archive()
         ? bold_last_string( titleizeit( get_post_type() ) )
         : bold_last_string( get_the_title() );
-    $_title = get_sub_field( 'title' ) ? bold_last_string( get_sub_field( 'title' ) ) : bold_last_string( get_the_title() );
-    $sub_title = get_sub_field( 'sub_title' );
-    $content = get_sub_field( 'use_post_title' )
+    $_title            = get_sub_field( 'title' ) ? bold_last_string( get_sub_field( 'title' ) ) : bold_last_string( get_the_title() );
+    $sub_title         = get_sub_field( 'sub_title' );
+    $content           = get_sub_field( 'use_post_title' )
         ? '<h1>' . $post_title . '</h1>'
         : '<h2>' . bold_last_string( $_title ) . '</h2>';
-    $content .= $sub_title
+    $content          .= $sub_title
         ? '<p data-styles="sub-title">' . $sub_title . '</p>'
         : '';
-    $text_alignment = get_sub_field( 'text_alignment' );
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $content_styles = get_sub_field( 'content_styles' );
-    $selection = get_sub_field( 'selection' );
-    $title_component = new Module(
+    $text_alignment    = get_sub_field( 'text_alignment' );
+    $spacing           = get_sub_field( 'spacing' );
+    $bg_borders        = get_sub_field( 'bg_borders' );
+    $content_styles    = get_sub_field( 'content_styles' );
+    $selection         = get_sub_field( 'selection' );
+    $title_component   = new Module(
         [],
         [
             'u-load-hide',
@@ -64,9 +64,9 @@ if ( get_row_layout() == 'title' ) :
                         'components/partials-content',
                         null,
                         array(
-                            'styles' => esc_attr( $content_component->styles() ),
+                            'styles'      => esc_attr( $content_component->styles() ),
                             'class_names' => esc_attr( $content_component->class_names() ),
-                            'content' => $content,
+                            'content'     => $content,
                         )
                     );
                     ?>

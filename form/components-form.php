@@ -6,14 +6,14 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'form' ) :
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
+if ( get_row_layout() === 'form' ) :
+    $spacing        = get_sub_field( 'spacing' );
+    $bg_borders     = get_sub_field( 'bg_borders' );
     $content_styles = get_sub_field( 'content_styles' );
-    $btn_styles = get_sub_field( 'btn_styles' );
-    $form_styles = get_sub_field( 'form_styles' );
-    $selection = get_sub_field( 'selection' );
-    $form = get_sub_field( 'form' );
+    $btn_styles     = get_sub_field( 'btn_styles' );
+    $form_styles    = get_sub_field( 'form_styles' );
+    $selection      = get_sub_field( 'selection' );
+    $form           = get_sub_field( 'form' );
     $form_component = new Module(
         [],
         [
@@ -60,9 +60,9 @@ if ( get_row_layout() == 'form' ) :
                             'components/partials-form',
                             null,
                             array(
-                                'styles' => '',
+                                'styles'      => '',
                                 'class_names' => '',
-                                'form' => $form,
+                                'form'        => $form,
                             )
                         );
                     ?>
