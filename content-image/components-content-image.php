@@ -7,12 +7,15 @@
  **/
 
 if ( get_row_layout() === 'content_with_image_aside' ) :
-    $cwia_component = new Module(
+    $spacing = get_sub_field( 'spacing' );
+    $section = new Module(
         [
             'content-image',
         ],
         [
             'u-load-hide',
+            $spacing['top'] ?? '',
+            $spacing['bottom'] ?? '',
         ]
     );
     ?>
@@ -21,110 +24,74 @@ if ( get_row_layout() === 'content_with_image_aside' ) :
         data-module="ContentImage"
         data-animation="fade-in"
         data-duration="400"
-        data-styles="<?php echo esc_attr( $cwia_component->styles() ); ?>"
-        class="<?php echo esc_attr( $cwia_component->class_names() ); ?>">
+        data-styles="<?php echo esc_attr( $section->styles() ); ?>"
+        class="<?php echo esc_attr( $section->class_names() ); ?>">
         <?php
         if ( have_rows( 'content_image_repeater' ) ) :
             $content_image_count = 0;
 
             while ( have_rows( 'content_image_repeater' ) ) :
                 the_row();
-                $content_editor      = get_sub_field( 'content_editor' );
-                $spacing             = get_sub_field( 'spacing' );
-                $bg_borders          = get_sub_field( 'bg_borders' );
-                $content_styles      = get_sub_field( 'content_styles' );
-                $btn_styles          = get_sub_field( 'btn_styles' );
-                $image               = get_sub_field( 'image' );
-                $image_styles        = get_sub_field( 'image_styles' );
-                $selection           = get_sub_field( 'selection' );
-                $figure_component    = new Module(
+                $content_editor     = get_sub_field( 'content_editor' );
+                $image              = get_sub_field( 'image' );
+                $basic_image_styles = get_sub_field( 'basic_image_styles' );
+                $figure             = new Module(
                     [
                         'content-image__figure',
                         $content_image_count > 0
-                            ? 'content-image__figure--left'
-                            : 'content-image__figure--right',
+                            ? 'is-left'
+                            : 'is-right',
                     ],
                     [
-                        $image_styles['image_size'],
-                        $image_styles['image_alignment'],
-                        $image_styles['image_ratio'],
-                        $image_styles['image_gradient'],
+                        $basic_image_styles['image_size'] ?? '',
+                        $basic_image_styles['image_position'] ?? '',
+                        'u-ratio-1x1',
                     ]
                 );
-                $container_component = new Module(
-                    [
-                        'content-image__container',
-                    ],
-                    [
-                        $bg_borders['background_color'],
-                        $bg_borders['border_color']
-                            ? 'u-border-t ' . $bg_borders['border_color']
-                            : '',
-                        $content_styles['color'],
-                        $content_styles['link_color'],
-                        $content_styles['link_hover_color'],
-                        $content_styles['link_background_hover_color'],
-                        $btn_styles['color'],
-                        $btn_styles['border_color'],
-                        $btn_styles['background_color'],
-                        $btn_styles['hover_color'],
-                        $btn_styles['border_hover_color'],
-                        $btn_styles['background_hover_color'],
-                        $selection['color'],
-                        $selection['background_color'],
-                    ]
-                );
-                $row_component       = new Module(
+                $row                = new Module(
                     [
                         'content-image__row',
                     ],
                     [
-                        'l-row',
+                        'l-row align-center full-width',
                         $content_image_count > 0
-                            ? 'u-align-right'
-                            : 'u-align-left',
+                            ? 'justify-flex-end'
+                            : 'justify-flex-start',
                     ]
                 );
-                $content_component   = new Module(
+                $content            = new Module(
                     [
                         'content-image__content',
-                        $content_image_count > 0
-                            ? 'content-image__content--left'
-                            : 'content-image__content--right',
                     ],
-                    [
-                        $spacing['top'],
-                        $spacing['bottom'],
-                    ]
+                    []
                 );
+
                 ?>
-                <div
-                    data-styles="<?php echo esc_attr( $container_component->styles() ); ?>"
-                    class="<?php echo esc_attr( $container_component->class_names() ); ?>">
+                <div data-styles="content-image__container">
                     <?php
                     get_template_part(
                         'components/figure',
                         null,
                         array(
                             'image'              => $image,
-                            'styles'             => esc_attr( $figure_component->styles() ),
-                            'class_names'        => esc_attr( $figure_component->class_names() ),
+                            'styles'             => esc_attr( $figure->styles() ),
+                            'class_names'        => esc_attr( $figure->class_names() ),
                             'animation_duration' => 400,
                         )
                     );
                     ?>
                     <div
-                        data-styles="<?php echo esc_attr( $row_component->styles() ); ?>"
-                        class="<?php echo esc_attr( $row_component->class_names() ); ?>">
-                        <div class="l-row__col is-med-half">
+                        data-styles="<?php echo esc_attr( $row->styles() ); ?>"
+                        class="<?php echo esc_attr( $row->class_names() ); ?>">
+                        <div class="l-row__col med-width-6">
                             <?php
                             if ( ! empty( $content_editor ) ) :
                                 get_template_part(
                                     'components/partials-content',
                                     null,
                                     array(
-                                        'styles'      => esc_attr( $content_component->styles() ),
-                                        'class_names' => esc_attr( $content_component->class_names() ),
+                                        'styles'      => esc_attr( $content->styles() ),
+                                        'class_names' => esc_attr( $content->class_names() ),
                                         'content'     => $content_editor,
                                     )
                                 );

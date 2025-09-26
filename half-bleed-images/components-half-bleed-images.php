@@ -7,17 +7,15 @@
  **/
 
 if ( get_row_layout() === 'half_bleed_images' ) :
-    $bg_borders           = get_sub_field( 'bg_borders' );
+    $spacing              = get_sub_field( 'spacing' );
     $half_bleed_component = new Module(
         [
             'half-bleed',
         ],
         [
             'u-load-hide',
-            $bg_borders['background_color'],
-            $bg_borders['border_color']
-                ? 'u-border-t ' . $bg_borders['border_color']
-                : '',
+            $spacing['top'] ?? '',
+            $spacing['bottom'] ?? '',
         ]
     );
     ?>
@@ -31,22 +29,21 @@ if ( get_row_layout() === 'half_bleed_images' ) :
         <?php
         if ( have_rows( 'image_repeater' ) ) :
             ?>
-            <div class="l-row is-fullwidth">
+            <div class="l-row full-width">
                 <?php
                 while ( have_rows( 'image_repeater' ) ) :
                     ?>
-                    <div class="l-row__col is-half no-gutter">
+                    <div class="l-row__col width-6 no-gutter">
                         <?php
                         the_row();
-                        $image            = get_sub_field( 'image' );
-                        $image_styles     = get_sub_field( 'image_styles' );
-                        $figure_component = new Module(
+                        $image              = get_sub_field( 'image' );
+                        $basic_image_styles = get_sub_field( 'basic_image_styles' );
+                        $figure_component   = new Module(
                             [],
                             [
-                                $image_styles['image_size'],
-                                $image_styles['image_alignment'],
-                                $image_styles['image_ratio'],
-                                $image_styles['image_gradient'],
+                                $basic_image_styles['image_size'] ?? '',
+                                $basic_image_styles['image_position'] ?? '',
+                                'u-ratio-1x1',
                             ]
                         );
                         if ( ! empty( $image ) ) :

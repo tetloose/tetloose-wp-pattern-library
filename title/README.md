@@ -4,7 +4,7 @@ Add a Title, has options to use page / post title.
 
 ## Module.ts
 
-Update `src/js/config/modules.config.ts` with:
+Update `src/config/modules.config.ts` with:
 
 `Title: () => import(/* webpackChunkName: "title" */ '@components/title/title.component')`
 

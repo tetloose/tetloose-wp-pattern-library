@@ -4,7 +4,7 @@ Repeater component, add columns of content.
 
 ## Module.ts
 
-Update `src/js/config/modules.config.ts` with:
+Update `src/config/modules.config.ts` with:
 
 `Content: () => import(/* webpackChunkName: "content" */ '@components/content/content.component')`
 

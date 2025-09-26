@@ -5,17 +5,16 @@
  * @package Tetloose-Theme
  **/
 
-$image            = get_sub_field( 'image' );
-$image_styles     = get_sub_field( 'image_styles' );
-$figure_component = new Module(
+$image              = get_sub_field( 'image' );
+$basic_image_styles = get_sub_field( 'basic_image_styles' );
+$figure_component   = new Module(
     [
         'hero__image',
     ],
     [
         'is-absolute',
-        $image_styles['image_size'],
-        $image_styles['image_alignment'],
-        $image_styles['image_gradient'],
+        $basic_image_styles['image_size'] ?? '',
+        $basic_image_styles['image_position'] ?? '',
     ]
 );
 

@@ -7,26 +7,23 @@
  **/
 
 if ( get_row_layout() === 'full_bleed_image' ) :
-    $image                = get_sub_field( 'image' );
-    $image_styles         = get_sub_field( 'image_styles' );
-    $bg_borders           = get_sub_field( 'bg_borders' );
-    $full_bleed_component = new Module(
+    $image                 = get_sub_field( 'image' );
+    $advanced_image_styles = get_sub_field( 'advanced_image_styles' );
+    $spacing               = get_sub_field( 'spacing' );
+    $full_bleed_component  = new Module(
         [],
         [
             'u-load-hide',
-            $bg_borders['background_color'],
-            $bg_borders['border_color']
-                ? 'u-border-t ' . $bg_borders['border_color']
-                : '',
+            $spacing['top'] ?? '',
+            $spacing['bottom'] ?? '',
         ]
     );
-    $figure_component     = new Module(
+    $figure_component      = new Module(
         [],
         [
-            $image_styles['image_size'],
-            $image_styles['image_alignment'],
-            $image_styles['image_ratio'],
-            $image_styles['image_gradient'],
+            $advanced_image_styles['image_size'] ?? '',
+            $advanced_image_styles['image_position'] ?? '',
+            $advanced_image_styles['image_ratio'] ?? '',
         ]
     );
     if ( ! empty( $image ) ) :

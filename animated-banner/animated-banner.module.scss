@@ -1,196 +1,92 @@
 @use '@styles/settings' as *;
 
-@keyframes kf-plane {
+@keyframes kf-row {
 	from {
-		top: 5%;
-		right: -15%;
+		transform: translateX(-100%);
 	}
 
 	to {
-		top: -15%;
-		right: 60%;
+		transform: translateX(0);
 	}
 }
 
-@keyframes kf-clouds {
-	from {
-		transform: scale(1);
-	}
-
-	to {
-		transform: scale(1.5);
-	}
-}
-
-@keyframes kf-buildings {
+@keyframes kf-decal {
 	from {
 		bottom: -100%;
 	}
 
 	to {
-		bottom: 0%;
+		bottom: 0;
 	}
 }
 
-@keyframes kf-aliens {
+@keyframes kf-background {
 	from {
-		bottom: -100%;
+		background-position: 0 0;
+		background-size: 140%;
 	}
 
 	to {
-		bottom: 0%;
-	}
-}
-
-@keyframes kf-ufo-1 {
-	from {
-		right: 100%;
-	}
-
-	to {
-		right: -5%;
-	}
-}
-
-@keyframes kf-ufo-2 {
-	from {
-		left: 100%;
-	}
-
-	to {
-		left: -5%;
-	}
-}
-
-@keyframes kf-logo {
-	from {
-		width: 36%;
-		opacity: 0;
-	}
-
-	to {
-		width: 50%;
-		padding-bottom: 15%;
-		opacity: 1;
+		background-position: 100% 0;
+		background-size: 100%;
 	}
 }
 
 .animated-banner {
 	position: relative;
 	overflow: hidden;
+	background-repeat: repeat;
+	animation-name: kf-background;
+	animation-duration: 8s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 
-	&__plane {
-		position: absolute;
-		top: 5%;
-		right: 10%;
-		z-index: 2;
-		width: 15%;
-		animation-name: kf-plane;
-		animation-duration: 15s;
-		animation-timing-function: ease-in-out;
-		animation-delay: 1s;
-		animation-iteration-count: infinite;
-		animation-fill-mode: forwards;
-	}
+	@include disable(disabled);
+	@include transition('all');
 
-	&__clouds {
-		position: absolute;
-		top: 10%;
-		left: 0;
-		animation-name: kf-clouds;
-		animation-duration: 8s;
-		animation-timing-function: ease-in-out;
-		animation-delay: 1s;
-		animation-iteration-count: infinite;
-		animation-direction: alternate-reverse;
-		animation-fill-mode: forwards;
-	}
-
-	&__buildings {
-		position: absolute;
-		right: 0;
-		bottom: -100%;
-		left: 0;
-		width: auto;
-		animation-name: kf-buildings;
+	&__row {
+		position: relative;
+		z-index: 1;
+		transform: translateX(-100%);
+		animation-name: kf-row;
 		animation-duration: 2s;
 		animation-timing-function: ease-in-out;
-		animation-delay: 1s;
-		animation-delay: .5s;
+		animation-delay: 3s;
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
 	}
 
-	&__aliens {
+	&__title {
+		color: $light;
+		transform: rotate(-2deg);
+
+		&-inside {
+			display: inline-block;
+			background-color: rgba($dark, .8);
+
+			@include sizing('padding', [size(2), size(4)]);
+		}
+	}
+
+	&__decal {
 		position: absolute;
-		right: 15%;
 		bottom: -100%;
-		left: 15%;
-		width: auto;
-		padding-top: 45%;
-		animation-name: kf-aliens;
+		z-index: 0;
+		height: calc(100% - size(layout(header-height)));
+		animation-name: kf-decal;
 		animation-duration: 2s;
 		animation-timing-function: ease-in-out;
-		animation-delay: 1s;
 		animation-delay: 2s;
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
-	}
 
-	&__ufo {
-		position: absolute;
-		z-index: 2;
-		width: 20%;
-		height: 0;
-		animation-duration: 4s;
-		animation-timing-function: ease-in-out;
-		animation-delay: 1s;
-		animation-iteration-count: 2;
-		animation-direction: alternate-reverse;
-		animation-fill-mode: forwards;
-
-		:global(img) {
-			position: absolute;
-			top: 0;
-			left: 0;
+		@include mq(breakpoint(med)) {
+			right: 15%;
 		}
 
-		&.is-1 {
-			right: -5%;
-			bottom: 20%;
-			padding-bottom: 8%;
-			animation-name: kf-ufo-1;
-		}
-
-		&.is-2 {
-			top: 16%;
-			left: -5%;
-			width: 20%;
-			padding-bottom: 10%;
-			animation-name: kf-ufo-2;
-		}
-	}
-
-	&__logo {
-		position: absolute;
-		top: 3%;
-		right: 2%;
-		width: 36%;
-		height: 0;
-		padding-bottom: 10%;
-		opacity: 0;
-		animation-name: kf-logo;
-		animation-duration: 3s;
-		animation-timing-function: ease-in-out;
-		animation-delay: 1s;
-		animation-delay: 6s;
-		animation-iteration-count: 1;
-		animation-fill-mode: forwards;
-
-		:global(img) {
-			position: absolute;
-			top: 0;
-			left: 0;
+		@include mq(breakpoint(med), max-width) {
+			right: 5%;
 		}
 	}
 }
