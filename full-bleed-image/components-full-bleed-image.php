@@ -6,27 +6,24 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'full_bleed_image' ) :
-    $image = get_sub_field( 'image' );
-    $image_styles = get_sub_field( 'image_styles' );
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $full_bleed_component = new Module(
+if ( get_row_layout() === 'full_bleed_image' ) :
+    $image                 = get_sub_field( 'image' );
+    $advanced_image_styles = get_sub_field( 'advanced_image_styles' );
+    $spacing               = get_sub_field( 'spacing' );
+    $full_bleed_component  = new Module(
         [],
         [
             'u-load-hide',
-            $bg_borders['background_color'],
-            $bg_borders['border_color']
-                ? 'u-border-t ' . $bg_borders['border_color']
-                : '',
+            $spacing['top'] ?? '',
+            $spacing['bottom'] ?? '',
         ]
     );
-    $figure_component = new Module(
+    $figure_component      = new Module(
         [],
         [
-            $image_styles['image_size'],
-            $image_styles['image_alignment'],
-            $image_styles['image_ratio'],
-            $image_styles['image_gradient'],
+            $advanced_image_styles['image_size'] ?? '',
+            $advanced_image_styles['image_position'] ?? '',
+            $advanced_image_styles['image_ratio'] ?? '',
         ]
     );
     if ( ! empty( $image ) ) :
@@ -43,9 +40,9 @@ if ( get_row_layout() == 'full_bleed_image' ) :
                     'components/figure',
                     null,
                     array(
-                        'image' => $image,
-                        'styles' => esc_attr( $figure_component->styles() ),
-                        'class_names' => esc_attr( $figure_component->class_names() ),
+                        'image'              => $image,
+                        'styles'             => esc_attr( $figure_component->styles() ),
+                        'class_names'        => esc_attr( $figure_component->class_names() ),
                         'animation_duration' => 400,
                     )
                 );

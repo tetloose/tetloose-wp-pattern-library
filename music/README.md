@@ -4,7 +4,7 @@ Component to embed music via an Iframe from Spotify, add artist links and conten
 
 ## Module.ts
 
-Update `src/js/config/modules.config.ts` with:
+Update `src/config/modules.config.ts` with:
 
 `Music: () => import(/* webpackChunkName: "music" */ '@components/music/music.component')`
 

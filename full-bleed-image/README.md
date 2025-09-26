@@ -4,7 +4,7 @@ Full width image.
 
 ## Module.ts
 
-Update `src/js/config/modules.config.ts` with:
+Update `src/config/modules.config.ts` with:
 
 `FullBleedImage: () => import(/* webpackChunkName: "full-bleed-image" */ '@components/full-bleed-image/full-bleed-image.component')`
 

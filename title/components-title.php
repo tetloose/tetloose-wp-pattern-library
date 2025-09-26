@@ -6,48 +6,39 @@
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() == 'title' ) :
-    $use_post_title = get_sub_field( 'use_post_title' );
-    $post_title = is_archive()
-        ? bold_last_string( titleizeit( get_post_type() ) )
-        : bold_last_string( get_the_title() );
-    $_title = get_sub_field( 'title' ) ? bold_last_string( get_sub_field( 'title' ) ) : bold_last_string( get_the_title() );
-    $sub_title = get_sub_field( 'sub_title' );
-    $content = get_sub_field( 'use_post_title' )
-        ? '<h1>' . $post_title . '</h1>'
-        : '<h2>' . bold_last_string( $_title ) . '</h2>';
-    $content .= $sub_title
-        ? '<p data-styles="sub-title">' . $sub_title . '</p>'
-        : '';
-    $text_alignment = get_sub_field( 'text_alignment' );
-    $spacing = get_sub_field( 'spacing' );
-    $bg_borders = get_sub_field( 'bg_borders' );
-    $content_styles = get_sub_field( 'content_styles' );
-    $selection = get_sub_field( 'selection' );
-    $title_component = new Module(
+if ( get_row_layout() === 'title' ) :
+    $text_alignment    = get_sub_field( 'text_alignment' );
+    $spacing           = get_sub_field( 'spacing' );
+    $title_component   = new Module(
         [],
         [
             'u-load-hide',
-            $spacing['top'],
-            $spacing['bottom'],
-            $bg_borders['background_color'],
-            $bg_borders['border_color']
-                ? 'u-border-t ' . $bg_borders['border_color']
-                : '',
-            $content_styles['color'],
-            $content_styles['link_color'],
-            $content_styles['link_hover_color'],
-            $content_styles['link_background_hover_color'],
-            $selection['color'],
-            $selection['background_color'],
+            $spacing['top'] ?? '',
+            $spacing['bottom'] ?? '',
         ]
     );
     $content_component = new Module(
         [],
         [
-            $text_alignment,
+            $text_alignment ?? '',
         ]
     );
+    $post_title        = get_sub_field( 'post_title' );
+    $use_post_title    = $post_title['use_post_title'];
+    $_title            = bold_last_string(
+        ! $use_post_title
+            ? $post_title['title'] ?? get_the_title()
+            : get_the_title()
+    );
+    $sub_title         = get_sub_field( 'sub_title' );
+    $_tag              = $use_post_title
+        ? 'h1'
+        : 'h2';
+    $content           = '<' . $_tag . '>' . $_title . '</' . $_tag . '>';
+    $content          .= $sub_title
+        ? '<p data-styles="sub-title">' . $sub_title . '</p>'
+        : '';
+
     if ( ! empty( $content ) ) :
         ?>
         <section
@@ -64,9 +55,9 @@ if ( get_row_layout() == 'title' ) :
                         'components/partials-content',
                         null,
                         array(
-                            'styles' => esc_attr( $content_component->styles() ),
+                            'styles'      => esc_attr( $content_component->styles() ),
                             'class_names' => esc_attr( $content_component->class_names() ),
-                            'content' => $content,
+                            'content'     => $content,
                         )
                     );
                     ?>

@@ -1,24 +1,28 @@
-@import '@styles/settings';
+@use '@styles/settings' as *;
 
 .content-image {
+	$content-image: &;
+
 	&__container {
 		position: relative;
+
+		&:last-child #{$content-image}__content {
+			padding-bottom: 0;
+		}
 	}
 
 	&__row {
-		@include mq(vars(breakpoint, med)) {
-			display: flex;
-			min-height: 50vh;
-			align-items: center;
+		@include mq(breakpoint(med)) {
+			min-height: height('half');
 		}
 	}
 
 	&__figure {
-		@include mq(vars(breakpoint, med), max-width) {
+		@include mq(breakpoint(med), max-width) {
 			position: static;
 		}
 
-		@include mq(vars(breakpoint, med)) {
+		@include mq(breakpoint(med)) {
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -26,30 +30,26 @@
 			aspect-ratio: auto;
 		}
 
-		&--left {
-			@include mq(vars(breakpoint, med)) {
+		&.is-left {
+			@include mq(breakpoint(med)) {
 				left: 0;
 			}
 		}
 
-		&--right {
-			@include mq(vars(breakpoint, med)) {
+		&.is-right {
+			@include mq(breakpoint(med)) {
 				right: 0;
 			}
 		}
 	}
 
 	&__content {
-		&--left {
-			@include mq(vars(breakpoint, med)) {
-				@include sizing('padding-left', size(4));
-			}
-		}
+		@include sizing('padding-top', size(8));
+		@include sizing('padding-bottom', size(8));
 
-		&--right {
-			@include mq(vars(breakpoint, med)) {
-				@include sizing('padding-right', size(4));
-			}
+		@include mq(breakpoint(med)) {
+			@include sizing('padding-left', size(8));
+			@include sizing('padding-right', size(8));
 		}
 	}
 }

@@ -5,7 +5,7 @@ export class AnimatedBanner extends ComponentClass {
     constructor(module: HTMLElement) {
         super(module)
 
-        this.css(module, styles, 1000)
+        this.css(module, styles)
     }
 }
 

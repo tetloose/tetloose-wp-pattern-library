@@ -1,4 +1,4 @@
-@import '@styles/settings';
+@use '@styles/settings' as *;
 
 .sub-title {
 	@include sizing('margin-top', size(-2));

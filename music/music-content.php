@@ -13,9 +13,9 @@ if ( ! empty( $content_editor ) ) :
         'components/partials-content',
         null,
         array(
-            'styles' => '',
+            'styles'      => '',
             'class_names' => '',
-            'content' => $content_editor,
+            'content'     => $content_editor,
         )
     );
 endif;

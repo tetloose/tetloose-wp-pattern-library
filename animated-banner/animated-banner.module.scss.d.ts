@@ -2,21 +2,13 @@
 // Please do not change this file!
 interface CssExports {
   'animated-banner': string;
-  'animated-banner__aliens': string;
-  'animated-banner__buildings': string;
-  'animated-banner__clouds': string;
-  'animated-banner__logo': string;
-  'animated-banner__plane': string;
-  'animated-banner__ufo': string;
-  'is-1': string;
-  'is-2': string;
-  'kf-aliens': string;
-  'kf-buildings': string;
-  'kf-clouds': string;
-  'kf-logo': string;
-  'kf-plane': string;
-  'kf-ufo-1': string;
-  'kf-ufo-2': string;
+  'animated-banner__decal': string;
+  'animated-banner__row': string;
+  'animated-banner__title': string;
+  'animated-banner__title-inside': string;
+  'kf-background': string;
+  'kf-decal': string;
+  'kf-row': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

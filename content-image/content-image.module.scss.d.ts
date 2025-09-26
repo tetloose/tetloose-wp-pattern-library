@@ -2,12 +2,11 @@
 // Please do not change this file!
 interface CssExports {
   'content-image__container': string;
-  'content-image__content--left': string;
-  'content-image__content--right': string;
+  'content-image__content': string;
   'content-image__figure': string;
-  'content-image__figure--left': string;
-  'content-image__figure--right': string;
   'content-image__row': string;
+  'is-left': string;
+  'is-right': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
