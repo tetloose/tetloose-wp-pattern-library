@@ -1,7 +1,19 @@
 @use '@styles/settings' as *;
 
 .hero {
+	@include color-scheme(
+		(
+			--title-bg: $light,
+			--title-color: $dark
+		),
+		(
+			--title-bg: $dark,
+			--title-color: $light
+		)
+	);
+
 	position: relative;
+	overflow: hidden;
 
 	&__image {
 		top: 0;
@@ -10,21 +22,18 @@
 		left: 0;
 	}
 
-	&__row {
-		position: relative;
-		z-index: z-index(sml);
-	}
-
 	&__title {
 		position: relative;
-		color: $light;
+		color: var(--title-color);
 		transform: rotate(-2deg);
+
+		@include disable(disabled);
 
 		&-inside {
 			display: inline-block;
-			background-color: $dark;
+			background-color: var(--title-bg);
 
-			@include sizing('padding', [size(2), size(4)]);
+			@include sizing('padding', [size(4), size(6)]);
 		}
 	}
 }

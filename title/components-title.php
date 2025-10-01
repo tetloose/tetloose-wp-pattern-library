@@ -7,57 +7,81 @@
  **/
 
 if ( get_row_layout() === 'title' ) :
-    $text_alignment    = get_sub_field( 'text_alignment' );
-    $spacing           = get_sub_field( 'spacing' );
-    $title_component   = new Module(
-        [],
-        [
-            'u-load-hide',
-            $spacing['top'] ?? '',
-            $spacing['bottom'] ?? '',
-        ]
+    $colors          = get_sub_field( 'colors' );
+    $text_attributes = get_sub_field( 'text_attributes' );
+    $spacing         = get_sub_field( 'spacing' );
+    $post_title      = get_sub_field( 'post_title' );
+    $_title          = post_title(
+        $post_title['use_post_title'],
+        $post_title['title'],
+        get_the_title(),
+        get_post_type()
     );
-    $content_component = new Module(
-        [],
-        [
-            $text_alignment ?? '',
-        ]
-    );
-    $post_title        = get_sub_field( 'post_title' );
-    $use_post_title    = $post_title['use_post_title'];
-    $_title            = bold_last_string(
-        ! $use_post_title
-            ? $post_title['title'] ?? get_the_title()
-            : get_the_title()
-    );
-    $sub_title         = get_sub_field( 'sub_title' );
-    $_tag              = $use_post_title
-        ? 'h1'
-        : 'h2';
-    $content           = '<' . $_tag . '>' . $_title . '</' . $_tag . '>';
-    $content          .= $sub_title
-        ? '<p data-styles="sub-title">' . $sub_title . '</p>'
-        : '';
+    $sub_title       = get_sub_field( 'sub_title' );
+    $_content        = $_title
+        ? typography(
+            $_title,
+            $text_attributes['tag'],
+            '',
+            $text_attributes['font_size']
+        )
+        : null;
+    $_content       .= $sub_title
+        ? typography(
+            $sub_title,
+            'p',
+            'title__sub-title'
+        )
+        : null;
 
-    if ( ! empty( $content ) ) :
+    if ( ! empty( $_content ) ) :
+        $section = new Module(
+            [],
+            [
+                $colors['text'] ?? '',
+                $colors['background'] ?? '',
+                $spacing['top'] ?? '',
+                $spacing['bottom'] ?? '',
+            ]
+        );
+        $row     = new Module(
+            [
+                'title',
+            ],
+            [
+                'u-load-hide',
+                'l-row',
+            ],
+            [
+                'opacity: 0;',
+            ],
+        );
+        $content = new Module(
+            [],
+            [
+                $text_attributes['text_alignment'] ?? '',
+                $text_attributes['text_transform'] ?? '',
+            ]
+        );
         ?>
-        <section
-            style="opacity: 0"
-            data-module="Title"
-            data-animation="fade-in"
-            data-duration="400"
-            data-styles="<?php echo esc_attr( $title_component->styles() ); ?>"
-            class="<?php echo esc_attr( $title_component->class_names() ); ?>">
-            <div class="l-row">
+        <section class="<?php echo esc_attr( $section->class_names() ); ?>">
+            <div
+                style="<?php echo esc_attr( $row->inline_styles() ); ?>"
+                data-module="Title"
+                data-animation="fade-in"
+                data-duration="400"
+                data-styles="<?php echo esc_attr( $row->styles() ); ?>"
+                class="<?php echo esc_attr( $row->class_names() ); ?>"
+            >
                 <div class="l-row__col">
                     <?php
                     get_template_part(
                         'components/partials-content',
                         null,
                         array(
-                            'styles'      => esc_attr( $content_component->styles() ),
-                            'class_names' => esc_attr( $content_component->class_names() ),
-                            'content'     => $content,
+                            'styles'      => esc_attr( $content->styles() ),
+                            'class_names' => esc_attr( $content->class_names() ),
+                            'content'     => $_content,
                         )
                     );
                     ?>

@@ -1,0 +1,11 @@
+@use '@styles/settings' as *;
+
+.image {
+	$gutter: calc(layout(gutter) * 2);
+
+	@include sizing('margin-top', size(-#{$gutter}));
+
+	&__figure {
+		@include sizing('margin-top', size($gutter));
+	}
+}

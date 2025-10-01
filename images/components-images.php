@@ -1,24 +1,27 @@
 <?php
 /**
- * Content
+ * Images
  * ACF Flexible Content
  *
  * @package Tetloose-Theme
  **/
 
-if ( get_row_layout() === 'content' ) :
+if ( get_row_layout() === 'images' ) :
     $row_attributes = get_sub_field( 'row_attributes' );
     $spacing        = get_sub_field( 'spacing' );
 
-    if ( have_rows( 'content_columns' ) ) :
+    if ( have_rows( 'images' ) ) :
         $section = new Module(
             [],
             [
+                $spacing['top'] ?? '',
                 $spacing['bottom'] ?? '',
             ]
         );
         $row     = new Module(
-            [],
+            [
+                'image',
+            ],
             [
                 'u-load-hide',
                 'l-row',
@@ -33,40 +36,55 @@ if ( get_row_layout() === 'content' ) :
         ?>
         <section class="<?php echo esc_attr( $section->class_names() ); ?>">
             <div
-                style="<?php echo esc_attr( $row->inline_styles() ); ?>"
-                data-module="Content"
+                styles="<?php echo esc_attr( $row->inline_styles() ); ?>"
+                data-module="Images"
                 data-animation="fade-in"
                 data-duration="400"
                 data-styles="<?php echo esc_attr( $row->styles() ); ?>"
                 class="<?php echo esc_attr( $row->class_names() ); ?>"
             >
                 <?php
-                while ( have_rows( 'content_columns' ) ) :
+                while ( have_rows( 'images' ) ) :
                     the_row();
+                    $image             = get_sub_field( 'image' );
                     $column_attributes = get_sub_field( 'column_attributes' );
-                    $content_editor    = get_sub_field( 'content_editor' );
+                    $image_attributes  = get_sub_field( 'image_attributes' );
+                    $width             = get_sub_field( 'width' );
 
-                    if ( ! empty( $content_editor ) ) :
-                        $col = new Module(
+                    if ( ! empty( $image ) ) :
+                        $col    = new Module(
                             [],
                             [
                                 'l-row__col',
-                                $spacing['top'] ?? '',
-                                $column_attributes['width'] ? 'med-width-' . $column_attributes['width'] : '',
+                                $column_attributes['width'] ? 'width-' . $column_attributes['width'] : '',
                                 $column_attributes['vertical'] ?? '',
                                 $column_attributes['horizontal'] ?? '',
                             ]
                         );
+                        $figure = new Module(
+                            [
+                                'image__figure',
+                            ],
+                            [
+                                $image_attributes['size'] ?? 'is-cover',
+                                $image_attributes['position'] ?? 'is-center',
+                                $image_attributes['height'] ? $image_attributes['height'] : 'u-ratio-1x1',
+                            ]
+                        );
                         ?>
-                        <div class="<?php echo esc_attr( $col->class_names() ); ?>">
+                        <div
+                            data-styles="<?php echo esc_attr( $col->styles() ); ?>"
+                            class="<?php echo esc_attr( $col->class_names() ); ?>"
+                        >
                             <?php
                             get_template_part(
-                                'components/partials-content',
+                                'components/figure',
                                 null,
                                 array(
-                                    'styles'      => '',
-                                    'class_names' => '',
-                                    'content'     => $content_editor,
+                                    'image'              => $image,
+                                    'styles'             => esc_attr( $figure->styles() ),
+                                    'class_names'        => esc_attr( $figure->class_names() ),
+                                    'animation_duration' => 400,
                                 )
                             );
                             ?>

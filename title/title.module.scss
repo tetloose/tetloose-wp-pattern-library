@@ -1,5 +1,7 @@
 @use '@styles/settings' as *;
 
-.sub-title {
-	@include sizing('margin-top', size(-2));
+.title {
+	&__sub-title {
+		@include sizing('margin-top', size(-2));
+	}
 }

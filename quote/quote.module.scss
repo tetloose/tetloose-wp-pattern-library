@@ -1,0 +1,84 @@
+@use '@styles/settings' as *;
+
+.quote {
+	$quote: &;
+
+	@include color-scheme(
+		(
+			--bullet-bg: $dark
+		),
+		(
+			--bullet-bg: $light
+		)
+	);
+
+	width: 100%;
+
+	&__profile {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+
+		@include sizing('gap', size(4));
+
+		&-image {
+			flex-grow: 0;
+			flex-shrink: 0;
+			overflow: hidden;
+			border-radius: radius(round);
+
+			@include sizing('width', size(15));
+			@include sizing('height', size(15));
+		}
+
+		:global(.u-small) {
+			display: block;
+			margin: 0;
+		}
+	}
+
+	&__carousel {
+		overflow: hidden;
+	}
+
+	&__pagination {
+		display: flex;
+		position: relative;
+		z-index: z-index(sml);
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+
+		:global(.swiper-pagination-bullet) {
+			display: block;
+			opacity: .3;
+			background-color: var(--bullet-bg);
+			border-radius: radius(round);
+
+			@include sizing('width', size(2));
+			@include sizing('margin-right', size(3.75));
+			@include sizing('height', size(2));
+			@include sizing('gap', size(7.5));
+
+			&:global(.swiper-pagination-bullet-active),
+			&:focus {
+				opacity: 1;
+			}
+
+			@include mq-hover {
+				@include transition('all');
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	:global(.swiper-pagination-lock),
+	:global(.swiper-button-lock) {
+		opacity: 0;
+
+		@include disable(true);
+	}
+}

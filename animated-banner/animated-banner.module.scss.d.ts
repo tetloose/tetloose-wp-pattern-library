@@ -2,13 +2,14 @@
 // Please do not change this file!
 interface CssExports {
   'animated-banner': string;
+  'animated-banner__col': string;
   'animated-banner__decal': string;
-  'animated-banner__row': string;
+  'animated-banner__image': string;
   'animated-banner__title': string;
   'animated-banner__title-inside': string;
-  'kf-background': string;
+  'kf-col': string;
   'kf-decal': string;
-  'kf-row': string;
+  'kf-image': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

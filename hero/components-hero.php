@@ -7,26 +7,47 @@
  **/
 
 if ( get_row_layout() === 'hero' ) :
-    $section_component = new Module(
+    $row_attributes   = get_sub_field( 'row_attributes' );
+    $image_attributes = get_sub_field( 'image_attributes' );
+    $section          = new Module(
         [
             'hero',
         ],
         [
             'u-load-hide',
+        ],
+        [
+            'opacity: 0;',
+            'position: relative',
+            'overflow: hidden',
+        ],
+    );
+    $row              = new Module(
+        [],
+        [
+            'l-row u-spacing-t-xxlrg u-spacing-b-xxlrg',
+            $row_attributes['full_width'] ? 'full-width' : '',
+            $row_attributes['vertical'] ?? '',
+            $row_attributes['horizontal'] ?? '',
+            $image_attributes['height'] ? $image_attributes['height'] : 'u-ratio-16x9',
         ]
     );
     ?>
     <section
-        style="opacity: 0"
+        style="<?php echo esc_attr( $section->inline_styles() ); ?>"
         data-module="Hero"
         data-animation="fade-in"
         data-duration="400"
-        data-styles="<?php echo esc_attr( $section_component->styles() ); ?>"
-        class="<?php echo esc_attr( $section_component->class_names() ); ?>">
-        <?php
-        get_template_part( '/components/hero', 'image' );
-        get_template_part( '/components/hero', 'content' );
-        ?>
+        data-styles="<?php echo esc_attr( $section->styles() ); ?>"
+        class="<?php echo esc_attr( $section->class_names() ); ?>"
+    >
+        <div
+            data-styles="<?php echo esc_attr( $row->styles() ); ?>"
+            class="<?php echo esc_attr( $row->class_names() ); ?>"
+        >
+            <?php get_template_part( '/components/hero', 'content' ); ?>
+        </div>
+        <?php get_template_part( '/components/hero', 'image' ); ?>
     </section>
     <?php
 endif;

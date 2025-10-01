@@ -1,24 +1,25 @@
 <?php
 /**
- * Hero Image
+ * Animated Banner Background
+ * ACF Flexible Content
  *
  * @package Tetloose-Theme
  **/
 
-$image            = get_sub_field( 'image' );
 $image_attributes = get_sub_field( 'image_attributes' );
+$image            = get_sub_field( 'image' );
 
 if ( ! empty( $image ) ) :
-    $figure = new Module(
-        [
-            'hero__image',
-        ],
-        [
-            'is-absolute',
-            $image_attributes['size'] ?? 'is-cover',
-            $image_attributes['position'] ?? 'is-center',
-        ]
-    );
+        $figure = new Module(
+            [
+                'animated-banner__image',
+            ],
+            [
+                'is-absolute',
+                $image_attributes['size'] ?? 'is-cover',
+                $image_attributes['position'] ?? 'is-center',
+            ]
+        );
     get_template_part(
         'components/figure',
         null,
@@ -29,4 +30,4 @@ if ( ! empty( $image ) ) :
             'animation_duration' => 400,
         )
     );
-endif;
+        endif;

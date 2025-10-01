@@ -1,0 +1,98 @@
+@use '@styles/settings' as *;
+
+.logos {
+	@include color-scheme(
+		(
+			--slide-inside: $dark,
+			--trigger-bg: $light,
+			--trigger-color: $dark,
+			--trigger-border: $dark,
+			--trigger-active-color: $light,
+			--trigger-active-bg: color($light, $dark, 20%)
+		),
+		(
+			--slide-inside: $light,
+			--trigger-bg: $dark,
+			--trigger-color: $light,
+			--trigger-border: $light,
+			--trigger-active-color: $light,
+			--trigger-active-bg: color($dark, $light, 30%)
+		)
+	);
+
+	width: 100%;
+
+	&__carousel {
+		overflow: hidden;
+
+		@include sizing('margin', size(-(layout(gutter))));
+	}
+
+	&__slide {
+		@include sizing('padding', size(layout(gutter)));
+
+		&-inside {
+			background-color: var(--slide-inside);
+
+			@include sizing('padding', size(layout(gutter)));
+		}
+	}
+
+	&__nav {
+		position: relative;
+
+		@include sizing('padding-left', size(calc(calc(layout(gutter) * 3)) + 12));
+		@include sizing('padding-right', size(calc(calc(layout(gutter) * 3)) + 12));
+	}
+
+	&__trigger {
+		display: inline-flex;
+		position: absolute;
+		top: 50%;
+		z-index: z-index(sml);
+		align-items: center;
+		justify-content: center;
+		opacity: 1;
+		visibility: visible;
+		background-color: var(--trigger-bg);
+		border-style: solid;
+		border-color: var(--trigger-border);
+		color: var(--trigger-color);
+		transform: translateY(-50%);
+
+		@extend %f-icon-xxlrg;
+		@include sizing('width', size(12));
+		@include sizing('height', size(12));
+		@include sizing('border-width', size(.25));
+
+		&:focus {
+			background-color: var(--trigger-active-bg);
+			color: var(--trigger-active-color);
+		}
+
+		@include mq-hover {
+			cursor: pointer;
+
+			@include transition('all');
+
+			&:hover {
+				background-color: var(--trigger-active-bg);
+				color: var(--trigger-active-color);
+			}
+		}
+
+		&.is-left {
+			@include sizing('left', size(layout(gutter)));
+		}
+
+		&.is-right {
+			@include sizing('right', size(layout(gutter)));
+		}
+
+		&:global(.swiper-button-lock),
+		&:global(.swiper-button-disabled) {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+}

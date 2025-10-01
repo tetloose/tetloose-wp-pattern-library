@@ -7,33 +7,39 @@
  **/
 
 if ( get_row_layout() === 'music' ) :
-    $spacing         = get_sub_field( 'spacing' );
-    $music_component = new Module(
+    $spacing = get_sub_field( 'spacing' );
+    $section = new Module(
+        [],
+        [
+            $spacing['top'] ?? '',
+            $spacing['bottom'] ?? '',
+        ]
+    );
+    $row     = new Module(
         [
             'music',
         ],
         [
             'u-load-hide',
-            $spacing['top'] ?? '',
-            $spacing['bottom'] ?? '',
+            'l-row',
+        ],
+        [
+            'opacity: 0;',
         ]
     );
     ?>
-    <section
-        style="opacity: 0"
-        data-module="Music"
-        data-animation="fade-in"
-        data-duration="400"
-        data-styles="<?php echo esc_attr( $music_component->styles() ); ?>"
-        class="<?php echo esc_attr( $music_component->class_names() ); ?>">
+    <section class="<?php echo esc_attr( $section->class_names() ); ?>">
         <div
-            data-styles="music__row"
-            class="l-row">
+            styles="<?php echo esc_attr( $row->inline_styles() ); ?>"
+            data-module="Music"
+            data-animation="fade-in"
+            data-duration="400"
+            data-styles="<?php echo esc_attr( $row->styles() ); ?>"
+            class="<?php echo esc_attr( $row->class_names() ); ?>"
+        >
             <div class="l-row__col">
                 <?php
-                get_template_part( '/components/music', 'content' );
                 get_template_part( '/components/music', 'player' );
-                get_template_part( '/components/music', 'logos' );
                 ?>
             </div>
         </div>

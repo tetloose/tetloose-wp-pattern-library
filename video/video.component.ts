@@ -1,6 +1,6 @@
 import { ComponentClass } from '@utilities'
 
-export class HalfBleedImages extends ComponentClass {
+export class Video extends ComponentClass {
     constructor(module: HTMLElement) {
         super(module)
 
@@ -8,4 +8,4 @@ export class HalfBleedImages extends ComponentClass {
     }
 }
 
-export default (module: HTMLElement) => new HalfBleedImages(module)
+export default (module: HTMLElement) => new Video(module)

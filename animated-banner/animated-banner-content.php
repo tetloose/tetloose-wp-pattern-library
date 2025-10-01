@@ -1,6 +1,6 @@
 <?php
 /**
- * Hero Content
+ * Animated Banner Content
  *
  * @package Tetloose-Theme
  **/
@@ -20,10 +20,10 @@ $_content        = $_title
         typography(
             $_title,
             'span',
-            'hero__title-inside'
+            'animated-banner__title-inside'
         ),
         $text_attributes['tag'],
-        'hero__title',
+        'animated-banner__title',
         $text_attributes['font_size']
     )
     : null;
@@ -32,16 +32,18 @@ $_content       .= $sub_title
         typography(
             $sub_title,
             'span',
-            'hero__title-inside'
+            'animated-banner__title-inside'
         ),
         'p',
-        'hero__title'
+        'animated-banner__title'
     )
     : null;
 
 if ( ! empty( $_content ) ) :
     $col     = new Module(
-        [],
+        [
+            'animated-banner__col',
+        ],
         [
             'l-row__col',
             $row_attributes['horizontal'] ? 'width-auto' : '',
@@ -55,21 +57,21 @@ if ( ! empty( $_content ) ) :
         ]
     );
     ?>
-    <div
-        data-styles="<?php echo esc_attr( $col->styles() ); ?>"
-        class="<?php echo esc_attr( $col->class_names() ); ?>"
-    >
-        <?php
-        get_template_part(
-            'components/partials-content',
-            null,
-            array(
-                'styles'      => esc_attr( $content->styles() ),
-                'class_names' => esc_attr( $content->class_names() ),
-                'content'     => $_content,
-            )
-        );
-        ?>
-    </div>
+        <div
+            data-styles="<?php echo esc_attr( $col->styles() ); ?>"
+            class="<?php echo esc_attr( $col->class_names() ); ?>"
+        >
+            <?php
+            get_template_part(
+                'components/partials-content',
+                null,
+                array(
+                    'styles'      => esc_attr( $content->styles() ),
+                    'class_names' => esc_attr( $content->class_names() ),
+                    'content'     => $_content,
+                )
+            );
+            ?>
+        </div>
     <?php
 endif;

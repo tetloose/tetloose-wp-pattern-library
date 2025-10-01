@@ -1,4 +1,4 @@
-# Full Bleed Video
+# Video
 
 Full width video component, add YouTube / Vimeo Links into the editor to build iFrames.
 
@@ -6,13 +6,13 @@ Full width video component, add YouTube / Vimeo Links into the editor to build i
 
 Update `src/config/modules.config.ts` with:
 
-`FullBleedVideo: () => import(/* webpackChunkName: "full-bleed-video" */ '@components/full-bleed-video/full-bleed-video.component')`
+`Video: () => import(/* webpackChunkName: "video" */ '@components/video/video.component')`
 
 ## ACF Flexible Content Component
 
 - Location: `**ACF** -> **Shared Fields** -> **Components**`
-- Name: `Full bleed video`
-- id: `full_bleed_video`
+- Name: `video`
+- id: `video`
 
 ## Navigation
 

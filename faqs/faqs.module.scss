@@ -1,0 +1,126 @@
+@use '@styles/settings' as *;
+
+.faqs {
+	$faqs: &;
+
+	@include color-scheme(
+		(
+			--trigger-color: $dark,
+			--trigger-border: color($light, $dark, 20%),
+			--trigger-border-active: $dark,
+			--trigger-before: $dark
+		),
+		(
+			--trigger-color: $light,
+			--trigger-border: color($dark, $light, 20%),
+			--trigger-border-active: $light,
+			--trigger-before: $light
+		)
+	);
+
+	width: 100%;
+
+	&__caption {
+		display: block;
+
+		@include sizing('margin-bottom', size(6));
+	}
+
+	&__item {
+		&.is-visible {
+			#{$faqs}__trigger {
+				opacity: 1;
+
+				&::after {
+					transform: translateY(-55%) rotate(0deg);
+				}
+			}
+
+			#{$faqs}__reveal {
+				display: block;
+				height: auto;
+			}
+		}
+	}
+
+	&__trigger {
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+		border-style: solid;
+		border-color: var(--trigger-border);
+		color: var(--trigger-color);
+		outline: none;
+
+		@include sizing('padding', [size(8), size(15), size(8), size(0)]);
+		@include sizing('border-width', [size(0), size(0), size(.25), size(0)]);
+
+		&:focus {
+			border-color: var(--trigger-border-active);
+		}
+
+		@include mq-hover {
+			@include transition('border-color');
+
+			&:hover {
+				border-color: var(--trigger-border-active);
+			}
+
+			&::before,
+			&::after {
+				opacity: 1;
+			}
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			opacity: .8;
+
+			@include transition('all');
+			@include hardware(true);
+		}
+
+		&::before {
+			right: 0;
+			border-style: solid;
+			border-color: var(--trigger-before);
+			border-radius: radius(round);
+			transform: translateY(-50%);
+
+			@include sizing('width', size(10));
+			@include sizing('height', size(10));
+			@include sizing('border-width', size(.5));
+		}
+
+		&::after {
+			border-style: solid;
+			border-color: transparent transparent var(--trigger-before);
+			transform: translateY(-31%) rotate(180deg);
+
+			@include sizing('border-width', [size(0), size(1.5), size(2)]);
+			@include sizing('right', size(3.4));
+		}
+	}
+
+	&__reveal {
+		display: none;
+		height: 0;
+		overflow: hidden;
+
+		@include transition('height');
+	}
+
+	&__content {
+		@include sizing('padding-top', size(8));
+
+		:global(.u-p) {
+			display: block;
+		}
+	}
+}
