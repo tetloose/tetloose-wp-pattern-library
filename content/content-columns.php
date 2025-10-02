@@ -17,8 +17,6 @@ while ( have_rows( 'content_columns' ) ) :
                 'l-row__col',
                 $spacing['top'] ?? '',
                 $column_attributes['width'] ? 'med-width-' . $column_attributes['width'] : '',
-                $column_attributes['vertical'] ?? '',
-                $column_attributes['horizontal'] ?? '',
             ]
         );
         ?>

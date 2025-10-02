@@ -28,6 +28,7 @@ if ( get_row_layout() === 'images' ) :
                 $row_attributes['full_width'] ? 'full-width' : '',
                 $row_attributes['vertical'] ?? '',
                 $row_attributes['horizontal'] ?? '',
+                $row_attributes['direction'] ?? '',
             ],
             [
                 'opacity: 0;',
@@ -57,8 +58,6 @@ if ( get_row_layout() === 'images' ) :
                             [
                                 'l-row__col',
                                 $column_attributes['width'] ? 'width-' . $column_attributes['width'] : '',
-                                $column_attributes['vertical'] ?? '',
-                                $column_attributes['horizontal'] ?? '',
                             ]
                         );
                         $figure = new Module(

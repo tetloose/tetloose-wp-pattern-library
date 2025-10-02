@@ -30,7 +30,7 @@ export class Quote extends ComponentClass {
 
             new Swiper(quote, {
                 slidesPerView: 1,
-                autoHeight: true,
+                autoHeight: false,
                 navigation: {
                     nextEl: next,
                     prevEl: prev

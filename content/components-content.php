@@ -25,6 +25,7 @@ if ( get_row_layout() === 'content' ) :
                 $row_attributes['full_width'] ? 'full-width' : '',
                 $row_attributes['vertical'] ?? '',
                 $row_attributes['horizontal'] ?? '',
+                $row_attributes['direction'] ?? '',
             ],
             [
                 'opacity: 0;',
@@ -53,8 +54,6 @@ if ( get_row_layout() === 'content' ) :
                                 'l-row__col',
                                 $spacing['top'] ?? '',
                                 $column_attributes['width'] ? 'med-width-' . $column_attributes['width'] : '',
-                                $column_attributes['vertical'] ?? '',
-                                $column_attributes['horizontal'] ?? '',
                             ]
                         );
                         ?>

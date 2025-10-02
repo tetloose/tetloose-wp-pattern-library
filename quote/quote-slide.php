@@ -5,27 +5,37 @@
  * @package Tetloose-Theme
  **/
 
-$_title      = get_field( 'title' );
+$_title      = get_the_title();
 $description = get_field( 'description' );
 $sub_title   = get_field( 'sub_title' );
+$source      = get_field( 'title' );
 $image       = get_field( 'image' );
-$_content    = $description
+
+$_content  = $description
     ? typography(
         $description,
         'blockquote',
         '',
-        'h-h4 u-bold'
+        'u-p'
     )
     : null;
-$profile     = $sub_title
+$_content .= $source
+    ? typography(
+        '<small> ' . $source . '</small>',
+        'p',
+        '',
+        'u-small u-bold'
+    )
+    : null;
+$profile   = $sub_title
     ? typography(
         $sub_title,
         'span',
         '',
-        'u-caption u-bold'
+        ''
     )
     : null;
-$profile    .= $_title
+$profile  .= $_title
     ? typography(
         $_title,
         'span',
@@ -40,21 +50,7 @@ if ( ! empty( $_content ) ) :
         data-styles="quote__slide"
         class="swiper-slide"
     >
-        <?php
-            get_template_part(
-                'components/partials-content',
-                null,
-                array(
-                    'styles'      => '',
-                    'class_names' => '',
-                    'content'     => $_content,
-                )
-            );
-        ?>
-        <div
-            data-styles="quote__profile"
-            class="u-spacing-t-sml"
-        >
+        <div data-styles="quote__profile">
             <?php
             if ( ! empty( $image ) ) :
                 $figure = new Module(
@@ -62,7 +58,7 @@ if ( ! empty( $_content ) ) :
                         'quote__profile-image',
                     ],
                     [
-                        'is-cover',
+                        'is-contain',
                     ]
                 );
                 get_template_part(
@@ -81,7 +77,7 @@ if ( ! empty( $_content ) ) :
                     'components/partials-content',
                     null,
                     array(
-                        'styles'      => 'quote__profile-content',
+                        'styles'      => '',
                         'class_names' => '',
                         'content'     => $profile,
                     )
@@ -89,6 +85,17 @@ if ( ! empty( $_content ) ) :
             endif;
             ?>
         </div>
+        <?php
+            get_template_part(
+                'components/partials-content',
+                null,
+                array(
+                    'styles'      => '',
+                    'class_names' => 'u-spacing-t-sml',
+                    'content'     => $_content,
+                )
+            );
+        ?>
     </article>
     <?php
 endif;

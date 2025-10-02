@@ -29,6 +29,7 @@ if ( get_row_layout() === 'animated_banner' ) :
             $row_attributes['full_width'] ? 'full-width' : '',
             $row_attributes['vertical'] ?? '',
             $row_attributes['horizontal'] ?? '',
+            $row_attributes['direction'] ?? '',
             $image_attributes['height'] ? $image_attributes['height'] : 'u-ratio-16x9',
         ]
     );
