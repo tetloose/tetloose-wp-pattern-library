@@ -22,6 +22,8 @@ if ( get_row_layout() === 'logos' ) :
         ],
         [
             'u-load-hide',
+            'l-row',
+            $carousel_attributes['full_width'] ? 'full-width' : '',
         ],
         [
             'opacity: 0;',
@@ -46,30 +48,28 @@ if ( get_row_layout() === 'logos' ) :
                 data-styles="<?php echo esc_attr( $component->styles() ); ?>"
                 class="<?php echo esc_attr( $component->class_names() ); ?>"
             >
-                <div class="l-row full-width">
+                <div
+                    data-styles="logos__nav"
+                    class="l-row__col"
+                >
                     <div
-                        data-styles="logos__nav"
-                        class="l-row__col"
+                        data-styles="logos__carousel"
+                        class="js-slider"
                     >
-                        <div
-                            data-styles="logos__carousel"
-                            class="js-slider"
-                        >
-                            <div class="swiper-wrapper">
-                                <?php get_template_part( '/components/logos', 'slides' ); ?>
-                            </div>
+                        <div class="swiper-wrapper">
+                            <?php get_template_part( '/components/logos', 'slides' ); ?>
                         </div>
-                        <button
-                            data-styles="logos__trigger is-left"
-                            class="js-sliderPrev">
-                            <i class="u-icon-prev"></i>
-                        </button>
-                        <button
-                            data-styles="logos__trigger is-right"
-                            class="js-sliderNext">
-                            <i class="u-icon-next"></i>
-                        </button>
                     </div>
+                    <button
+                        data-styles="logos__trigger is-left"
+                        class="js-sliderPrev">
+                        <i class="u-icon-prev"></i>
+                    </button>
+                    <button
+                        data-styles="logos__trigger is-right"
+                        class="js-sliderNext">
+                        <i class="u-icon-next"></i>
+                    </button>
                 </div>
             </div>
         </section>

@@ -7,21 +7,23 @@
  **/
 
 if ( get_row_layout() === 'music' ) :
-    $spacing = get_sub_field( 'spacing' );
-    $section = new Module(
+    $iframe_attributes = get_sub_field( 'iframe_attributes' );
+    $spacing           = get_sub_field( 'spacing' );
+    $section           = new Module(
         [],
         [
             $spacing['top'] ?? '',
             $spacing['bottom'] ?? '',
         ]
     );
-    $row     = new Module(
+    $row               = new Module(
         [
             'music',
         ],
         [
             'u-load-hide',
             'l-row',
+            $iframe_attributes['full_width'] ? 'full-width' : '',
         ],
         [
             'opacity: 0;',

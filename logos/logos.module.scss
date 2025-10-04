@@ -3,7 +3,6 @@
 .logos {
 	@include color-scheme(
 		(
-			--slide-inside: $dark,
 			--trigger-bg: $light,
 			--trigger-color: $dark,
 			--trigger-border: $dark,
@@ -11,7 +10,6 @@
 			--trigger-active-bg: color($light, $dark, 20%)
 		),
 		(
-			--slide-inside: $light,
 			--trigger-bg: $dark,
 			--trigger-color: $light,
 			--trigger-border: $light,
@@ -30,19 +28,15 @@
 
 	&__slide {
 		@include sizing('padding', size(layout(gutter)));
-
-		&-inside {
-			background-color: var(--slide-inside);
-
-			@include sizing('padding', size(layout(gutter)));
-		}
 	}
 
 	&__nav {
 		position: relative;
 
-		@include sizing('padding-left', size(calc(calc(layout(gutter) * 3)) + 12));
-		@include sizing('padding-right', size(calc(calc(layout(gutter) * 3)) + 12));
+		&:not(:has(:global(.swiper-button-lock))) {
+			@include sizing('padding-left', size(calc(calc(layout(gutter) * 3)) + 12));
+			@include sizing('padding-right', size(calc(calc(layout(gutter) * 3)) + 12));
+		}
 	}
 
 	&__trigger {
